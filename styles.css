@@ -666,7 +666,4 @@ p {
     gap: 0.5rem;
   }
 }
-/* DEBUG — remove after finding overflow culprit */
-* {
-  outline: 1px solid rgba(255,0,0,0.15);
-}
+
