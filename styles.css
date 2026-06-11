@@ -53,7 +53,10 @@ body {
 }
 
 @media (max-width: 720px) {
-  body { background: var(--bg); }
+  body {
+    background: var(--bg);
+    overflow-x: hidden;
+  }
 }
 
 a {
