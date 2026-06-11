@@ -609,3 +609,60 @@ p {
     align-items: center;
   }
 }
+/* Mobile overflow fixes ------------------------------------------- */
+
+@media (max-width: 720px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .hero figure {
+    display: none;
+  }
+
+  .shell {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: clamp(1.6rem, 7vw, 2.5rem);
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    max-width: 100%;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .aside-label {
+    position: static;
+  }
+
+  .entry-list > li {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .feature {
+    grid-template-columns: 1fr;
+  }
+
+  .dl {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+
+  .site-footer__inner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
