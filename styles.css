@@ -677,4 +677,56 @@ p {
   margin-bottom: 1.5rem;
   border: 1px solid var(--rule);
 }
-
+/* --- Workshop grid --- */
+.workshop-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+@media (max-width: 640px) {
+  .workshop-grid { grid-template-columns: 1fr; }
+}
+.workshop-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--rule);
+  background: var(--bg);
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.workshop-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px oklch(0.20 0.01 60 / 0.06);
+}
+.workshop-card__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--bg-soft);
+  display: block;
+}
+.workshop-card__body {
+  padding: 1.1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+.workshop-card__body h2 {
+  font-size: 1.15rem;
+  margin: 0;
+  line-height: 1.25;
+}
+.workshop-card__body p {
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0;
+  max-width: none;
+  flex: 1;
+}
+.workshop-card__body .button {
+  align-self: flex-start;
+  margin-top: 0.25rem;
+}
