@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Hourglass</title>
+  <link rel="stylesheet" href="static/style.css">
+  <!-- interact.js: the thin drag primitive (MIT, free) loaded from a CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/interactjs@1.10.27/dist/interact.min.js"></script>
+</head>
+<body>
+
+  <!-- ============================ TOP NAV ============================ -->
+  <div class="topbar">
+    <div class="brand"><span class="glass">⏳</span> The Hourglass</div>
+    <div class="week-name" id="weekName">—</div>
+    <div class="spacer"></div>
+    <button id="btnCategories">Categories</button>
+    <button id="btnWeeks">Weeks</button>
+    <button id="btnImport">Import</button>
+    <button id="btnExport">Export</button>
+    <button id="btnReset">Reset</button>
+  </div>
+
+  <!-- ============================ LEGEND ============================ -->
+  <div class="legend" id="legend"></div>
+
+  <!-- ============================ GRID ============================ -->
+  <div class="grid-wrap">
+    <div class="grid" id="grid"><!-- built by app.js --></div>
+    <p class="muted" style="margin-top:10px">
+      Drag on empty cells to make a block · drag a block to move it (occupied time
+      cascades down) · drag a block's top/bottom edge to resize · click a block to rename or recategorize.
+    </p>
+  </div>
+
+  <!-- ===================== BLOCK EDITOR MODAL ===================== -->
+  <div class="overlay" id="blockModal">
+    <div class="modal">
+      <h2 id="blockModalTitle">New block</h2>
+      <div class="body">
+        <label class="field">
+          <span class="lab">Name</span>
+          <input type="text" id="blockName" placeholder="What is this time for?">
+        </label>
+        <label class="field">
+          <span class="lab">Category (sets the color)</span>
+          <select id="blockCategory"></select>
+        </label>
+        <label class="field">
+          <span class="lab">Duration (30-minute steps, capped at the 9:00pm floor)</span>
+          <select id="blockDuration"></select>
+        </label>
+      </div>
+      <div class="foot">
+        <button class="btn danger" id="blockDelete" style="margin-right:auto">Delete</button>
+        <button class="btn" id="blockCancel">Cancel</button>
+        <button class="btn primary" id="blockSave">Save</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CATEGORIES MODAL ===================== -->
+  <div class="overlay" id="catModal">
+    <div class="modal">
+      <h2>Manage categories</h2>
+      <div class="body">
+        <p class="hint">Color lives on the category — recoloring one instantly recolors every block of that type.</p>
+        <div id="catList"></div>
+        <hr style="border-color:var(--border); margin:14px 0">
+        <h3 style="font-size:13px; margin:0 0 8px">Add a category</h3>
+        <label class="field">
+          <span class="lab">Name</span>
+          <input type="text" id="newCatName" placeholder="e.g. Deep work">
+        </label>
+        <span class="lab">Color</span>
+        <div class="color-grid" id="newCatColors"></div>
+      </div>
+      <div class="foot">
+        <button class="btn" id="catClose">Done</button>
+        <button class="btn primary" id="catAdd">Add category</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== WEEKS MODAL ===================== -->
+  <div class="overlay" id="weeksModal">
+    <div class="modal wide">
+      <h2>Weeks &amp; templates</h2>
+      <div class="body">
+        <div class="row-inline" style="margin-bottom:14px">
+          <button class="btn" id="weekNew">+ New blank week</button>
+          <label class="field" style="flex:1; margin:0">
+            <span class="lab">Rename the active week</span>
+            <div class="row-inline">
+              <input type="text" id="activeWeekName" style="flex:1">
+              <button class="btn" id="weekRename">Rename</button>
+            </div>
+          </label>
+        </div>
+        <h3 style="font-size:13px; margin:8px 0">Your library</h3>
+        <div id="weekList"></div>
+      </div>
+      <div class="foot">
+        <button class="btn" id="weeksClose">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== IMPORT MODAL ===================== -->
+  <div class="overlay" id="importModal">
+    <div class="modal wide">
+      <h2>Import from Argo</h2>
+      <div class="body">
+        <p class="hint">Paste the JSON array Argo produced. Each row needs day, start, duration, name, category.</p>
+        <textarea id="importText" placeholder='[
+  { "day": "Mon", "start": "09:00", "duration": 90, "name": "Paper 1 drafting", "category": "Slot 1" }
+]'></textarea>
+
+        <div class="row-inline" style="margin-top:12px">
+          <label class="field" style="margin:0">
+            <span class="lab">Where to put it</span>
+            <select id="importMode">
+              <option value="new">Load into a NEW week</option>
+              <option value="replace">REPLACE the current week</option>
+            </select>
+          </label>
+          <label class="field" id="importNameWrap" style="margin:0; flex:1">
+            <span class="lab">New week name</span>
+            <input type="text" id="importName" placeholder="Imported week">
+          </label>
+        </div>
+        <label class="row-inline" style="margin-top:6px; cursor:pointer">
+          <input type="checkbox" id="importCreateCats">
+          <span class="muted">Auto-create any unknown categories (as gray) instead of flagging them</span>
+        </label>
+
+        <div class="import-result" id="importResult"></div>
+      </div>
+      <div class="foot">
+        <button class="btn" id="importClose">Close</button>
+        <button class="btn primary" id="importRun">Import</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <!-- db.js (the in-browser store) MUST load before app.js -->
+  <script src="static/db.js"></script>
+  <script src="static/app.js"></script>
+</body>
+</html>
