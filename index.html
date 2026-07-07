@@ -11,6 +11,117 @@
 <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body data-theme="warm" data-accent="warmblue" data-type="editorial">
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href="index.html">Blue Brazelton<span class="brand__dot">.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="writing.html">Writing</a>
+      <a href="aegis.html">Aegis / MAPS</a>
+      <a href="workshop.html">Workshop</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); document.querySelector('.nav').classList.toggle('is-open');">☰</button>
+  </div>
+</header>
+<main>
+  <div class="shell">
+    <section class="two-col">
+      <div>
+        <span class="eyebrow">Associate Professor &middot; Northern Arizona University</span>
+        <h1 style="margin-top: 0.4rem;">Blue Brazelton</h1>
+        <p class="lead" style="margin-top: 1.25rem;">I work where higher education meets the systems that are quietly remaking it: technology/AI, organizational theory, and the day-to-day of how institutions evolve and offer learning environments and try to change.</p>
+        <p class="lead" style="margin-top: 0.6rem; color: var(--ink-soft);">Almost every day, someone does something that we used to call "impossible" and we're not willing to call it magic? </p>
+        <div style="margin-top: 1.75rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
+          <a class="button" href="about.html">About</a>
+          <a class="button" href="research.html">Research &amp; writing</a>
+          <a class="button button--accent" href="aegis.html">The Aegis project</a>
+        </div>
+      </div>
+      <figure style="margin: 0;">
+        <img src="portrait.jpg" alt="Blue Brazelton" width="1000" height="1334" loading="eager" decoding="async" fetchpriority="high" style="display:block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border: 1px solid var(--rule);" />
+      </figure>
+    </section>
+    <hr class="rule" />
+    <section class="two-col">
+      <div class="aside-label">Currently</div>
+      <div>
+        <div class="feature">
+          <div class="feature__tag">In progress</div>
+          <div>
+            <p class="feature__title">AI Governance Study &mdash; analysis &amp; writing phase</p>
+            <p class="feature__body">A multi-institution dataset on how universities are formalizing (or not) the policies, committees, and review processes that surround generative AI adoption. Currently moving from collection into analysis.</p>
+            <a class="feature__link arrow" href="research.html">Read the project notes</a>
+          </div>
+        </div>
+        <p class="small muted" style="margin: 2rem 0 0.5rem; letter-spacing: 0.02em;">Recent &mdash; AI research and applications</p>
+        <ul style="list-style: none; padding: 0; margin: 0.75rem 0 0; display: grid; gap: 0.9rem;">
+          <li style="align-items: baseline;">
+            <span class="dateline">Oct&nbsp;2026</span>
+            <span>
+              <strong style="font-weight:500;">Two sessions confirmed at the AAC&amp;U Conference on AI and Higher Education</strong> (Oct 28&ndash;30, Washington, DC):
+              <ul style="list-style: none; padding: 0; margin: 0.5rem 0 0; display: grid; gap: 0.4rem;">
+                <li><em>Reclaim Your Time, Reclaim Your Agency: AI as Productivity Infrastructure for the Professoriate</em> &mdash; Innovation session.</li>
+                <li><em>Beyond Compliance: Reading AI Governance as a Signal of Institutional Digital Maturity</em> &mdash; Theory to Practice session, Policy/Governance/Ethics track.</li>
+              </ul>
+            </span>
+          </li>
+          <li style="align-items: baseline;">
+            <span class="dateline">Under&nbsp;review</span>
+            <span><strong style="font-weight:500;">Instructional Design in the Age of AI: From Frameworks to Practice</strong> (with Susan Purrington). <span class="muted">Book proposal, Emerald Publishing.</span></span>
+          </li>
+          <li style="align-items: baseline;">
+            <span class="dateline">In&nbsp;progress</span>
+            <span><strong style="font-weight:500;">AI in the Onboarding Process</strong> (with Maria Pokrovskaya) in NODA's <em>Seamless Transition</em>; and <strong style="font-weight:500;">Beyond Detection: How AI Governance Frameworks Bridge the Assessment Gap</strong> in IGI Global's <em>AI-Resilient Assessment Design in Higher Education</em> (Seuwou, ed.).</span>
+          </li>
+          <li style="align-items: baseline;">
+            <span class="dateline">May&nbsp;2026</span>
+            <span>Delivered <strong style="font-weight:500;">Professional Development in the Age of AI</strong> keynote panel at NAU Employee Development Days.</span>
+          </li>
+          <li style="align-items: baseline;">
+            <span class="dateline">Ongoing</span>
+            <span><strong style="font-weight:500;">AI + Higher Ed</strong> &mdash; new writing home on Substack, cross-posted from <a href="writing.html">writing</a>.</span>
+          </li>
+          <li style="align-items: baseline;">
+            <span class="dateline">Ongoing</span>
+            <span><strong style="font-weight:500;">Workshop</strong> &mdash; three build-through-AI-collaboration projects now live: <a href="hourglass.html">The Hourglass</a>, <a href="workshop.html">DCC TTRPG</a>, <a href="dimming/dimming.html">The Dimming</a>.</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <div>
+      <span>Blue Brazelton</span>
+      <span class="muted"> &middot; Northern Arizona University</span>
+    </div>
+    <div>
+      <a href="contact.html">Contact</a>
+      <span class="muted"> &middot; </span>
+      <a href="cv.html">CV</a>
+      <span class="muted"> &middot; Last updated July 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html><!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blue Brazelton</title>
+<meta name="description" content="Practitioner-scholar working at the intersection of AI, higher education, and leadership." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&family=Newsreader:opsz,wght@6..72,300..600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=6" />
+</head>
+<body data-theme="warm" data-accent="warmblue" data-type="editorial">
 
 <header class="site-header">
   <div class="shell site-header__inner">
