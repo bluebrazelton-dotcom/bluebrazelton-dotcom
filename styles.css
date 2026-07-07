@@ -670,5 +670,11 @@ p {
   }
 }
 /* --- Essay pages (dimming.html, future long-form) --- */
-.essay-hero-image { max-width: 100%; height: auto; display: block; }
+.essay-hero-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--rule);
+}
 
