@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Hourglass — Blue Brazelton</title>
+  <style>
+    body { max-width: 780px; margin: 0 auto; padding: 40px 20px 80px;
+           font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+           line-height: 1.55; color: #222; }
+    h1 { font-size: 2rem; margin-bottom: 0.25em; }
+    .tagline { color: #666; font-size: 1.1rem; margin-top: 0; }
+    .shot { display: block; width: 100%; margin: 24px 0;
+            border: 1px solid #ddd; border-radius: 8px; }
+    .ctas { display: flex; gap: 12px; flex-wrap: wrap; margin: 28px 0; }
+    .cta { display: inline-block; padding: 12px 22px; border-radius: 8px;
+           text-decoration: none; font-weight: 600; font-size: 0.95rem;
+           border: 1px solid transparent; }
+    .cta.primary   { background: #378ADD; color: #fff; }
+    .cta.primary:hover   { background: #2b6fb0; }
+    .cta.secondary { background: #fff; color: #378ADD; border-color: #378ADD; }
+    .cta.secondary:hover { background: #f0f7fd; }
+    h2 { font-size: 1.3rem; margin-top: 2em; }
+    ol.steps li { margin-bottom: 8px; }
+    .foot { margin-top: 3em; padding-top: 1em; border-top: 1px solid #eee;
+            color: #888; font-size: 0.9rem; }
+    .foot a { color: #666; }
+  </style>
+</head>
+<body>
+
+  <h1>The Hourglass</h1>
+  <p class="tagline">A weekly time-blocking tool for planning your typical week
+  in 30-minute blocks — with an AI collaboration built in.</p>
+
+  <!-- TODO: swap in a real screenshot or animated GIF of the drag/cascade -->
+  <img class="shot" src="/hourglass/screenshot.png" alt="The Hourglass — a 7-day grid with color-coded time blocks">
+
+  <div class="ctas">
+    <a class="cta primary"   href="https://hourglass.bluebrazelton.com">Open The Hourglass →</a>
+    <!-- TODO: point at your actual Cloudflare Pages URL or subdomain -->
+    <a class="cta secondary" href="./prompt/">Get the planning prompt</a>
+  </div>
+
+  <h2>What it is</h2>
+  <p>The Hourglass is a 7-day grid, Monday through Sunday, spanning 6:00am to
+  9:00pm in 30-minute blocks. You drag on empty cells to create a block, drag
+  blocks to move them, and dragging a block onto occupied time <em>cascades</em>
+  the existing blocks later in the day. It's designed to plan a
+  <em>typical week</em> — the repeating shape you want to live in — rather than
+  any specific calendar range.</p>
+
+  <p>Everything runs in your browser. Your data lives in local storage, not on a
+  server — no sign-in, nothing sent anywhere. You can export your week as JSON
+  and re-import it whenever you want.</p>
+
+  <h2>The AI part</h2>
+  <p>The interesting piece isn't the grid — it's how you fill it. Instead of
+  hand-building a week from scratch, you use a prompt that turns any AI
+  assistant (ChatGPT, Claude, Gemini, whichever you prefer) into a planning
+  partner. It asks you seven questions about your work, movement, meetings,
+  and habits, drafts a week back to you in prose, and hands you a JSON file to
+  paste directly into the tool.</p>
+
+  <h2>How to use it</h2>
+  <ol class="steps">
+    <li><a href="./prompt/">Get the planning prompt</a> and paste it into your
+    preferred AI assistant.</li>
+    <li>Answer its questions. Adjust the draft it proposes until it fits.</li>
+    <li>Copy the JSON it produces at the end. In The Hourglass, open the
+    Import panel and paste it in.</li>
+  </ol>
+
+  <div class="foot">
+    Built with Flask, ported to a client-side static app for the web.
+    <!-- TODO: swap in your GitHub URL -->
+    Source: <a href="https://github.com/bluebrazelton-dotcom/hourglass">github.com/bluebrazelton-dotcom/hourglass</a>
+    · <a href="/">bluebrazelton.com</a>
+  </div>
+
+</body>
+</html>
