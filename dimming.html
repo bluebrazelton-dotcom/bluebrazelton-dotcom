@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turning the Light On: Creating The Dimming — Blue Brazelton</title>
+  <meta name="description" content="Building The Dimming, a fake AI radio station, took 40 hours over three weeks. What I learned about audio LLMs, purposeful AI use, and the slop path.">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- [SITE HEADER / NAV — paste from workshop.html] -->
+
+  <main class="essay">
+
+    <header class="essay-hero">
+      <h1>Turning the Light On</h1>
+      <p class="deck">Creating The Dimming</p>
+    </header>
+
+    <article class="essay-body">
+
+      <p>Anyone who says "just enter your prompt and get what you want with AI" has never tried that premise. Across Suno, Elevenlabs, Claude, and ChatGPT, I can assure you that the "simple" task of creating a two hour video with ambient instrumental music and an intermittent DJ that met any sort of standard of "natural" was nigh impossible. There were dozens of obstacles, puzzles, and problems to negotiate via prompt language, and even with my trusty Aegis Framework, creating the foundation for this project took about 40 hours over 3 weeks. But this is because I set and maintained standards for what I was looking for, and by rule for this project, I couldn't settle. The product is real, but the process was the point. And I know more about audio LLM processing and prompting than I thought was necessary for any aspect of my personal or professional life. Each tool has limitations, and whether through user error or model design, creating an ideal deliverable was more expensive than I should share here (okay about $30 for a month of Suno Premier and $100 for Elevenlabs).</p>
+
+      <p>Suno does not like generating long instrumentals, as the lack of text in the lyrics prompt meant that there were very few expectations to address. And no, simply stating a song length is not possible and any attempts are misinterpreted. I had to use the law of averages, the extend, mashup, and cover tools just to get anything close to workable for my vision. Just a basic soundbed of 8 different song moods and 6-10 unique versions that could settle into a beautiful set of tones.</p>
+
+      <p>Elevenlabs is frankly amazing if you dig into the various features and tips to create natural and conversational tone. But turning that into what I envisioned for DJ Cass (short for Cassiopea), required random chance. But eventually, we found our way together. But it cost a lot of tokens. The voice of Cass is exactly what I wanted, but directing "her" to the emotion I was looking for required a level of direction via prompting that is honestly more effort than I was prepared for.</p>
+
+      <p>Claude was great for logistics, but it also assumed that I would be able to easily extract what I wanted from other tools. The entire radio video pipeline was orchestrated by my Claude strategist, but "he" is pretty terrible at understanding emotion. I wonder why. ChatGPT was better, but only in the creation of directive structure for Elevenlabs. Again, the most important variable was random chance and my patience. ChatGPT helped me add direction to the Cass drops, but I burned through half my pro level token usage just developing the voice and two videos worth of audio.</p>
+
+      <blockquote class="pullquote">
+        <p>AI tools are powerful, but without AI literacy, you're relying on random chance. And low standards.</p>
+      </blockquote>
+
+      <p>I ended up needing some visual media, so I went with Midjourney but had to also tag in Photopea in order to get the look I had in mind. All of which Claude was useful for: all of the image generating and editing through writing prompts, finding features, figuring out values, and ultimately translating me for the other tools.</p>
+
+      <p>Audio processing and video rendering were done with Git Bash, and this is an incredible tool as well, probably the most impressive thing that I got exposed to through this process. I wasn't writing the actual code for Bash, Claude was, but I had no idea such functionality was available to me. Git Bash is the tool I most need to learn next, and across all of the different tools that this project required, having it behave predictably was such a relief after so much fiddling with probabilistic AI tools for the first 90% of this project.</p>
+
+      <p>AI tools are powerful, but without AI literacy, you're relying on random chance. And low standards (and all my fellow instructors out there know exactly what I'm talking about). But the power is there, the potential is real, but is it economical? The Dimming 108.1 FM would have to go viral and be sustained by the users before it could ever provide a return on investment, because I burned through a lot of tokens, but that was the discovery phase, and now that the pipeline is built, this could become self-sustaining. There are enough song beds generated to change up the music, scripts can be generated off of the ones I've already written and the template I used on each, and then assuming you aren't picky about the voice over, that could be automated too. But that would degenerate into slop much faster than I could tolerate.</p>
+
+      <p>Whether or not the sloppification could be managed, well I need more time and a fresh bucket of tokens before I'll bother attempting. But, these tools are more complicated than I gave them credit for, and so the experiment has been a success. What we want is not what we get, and this is not something that can be fixed simply through the best prompting imaginable. Garbage in, garbage out. But if you put the effort in (and change what "effort" looks like for you and your skill set), you might even impress yourself.</p>
+
+    </article>
+
+    <div class="essay-cta">
+      <a class="cta" href="https://www.youtube.com/@TheDimming108.1FM">Listen on YouTube →</a>
+    </div>
+
+    <nav class="essay-footer-nav">
+      <a href="/workshop.html">← Back to Workshop</a>
+    </nav>
+
+  </main>
+
+  <!-- [SITE FOOTER — paste from workshop.html] -->
+
+</body>
+</html>
