@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dungeon Crawler Carl TTRPG — Blue Brazelton</title>
+<meta name="description" content="How to set up and run a Dungeon Crawler Carl tabletop campaign with an AI narrator — the design behind it, and a step-by-step setup guide for any project-capable AI assistant." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&family=Newsreader:opsz,wght@6..72,300..600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/styles.css?v=6" />
+</head>
+<body data-theme="warm" data-accent="warmblue" data-type="editorial">
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href="/index.html">Blue Brazelton<span class="brand__dot">.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/about.html">About</a>
+      <a href="/research.html">Research</a>
+      <a href="/writing.html">Writing</a>
+      <a href="/aegis.html">Aegis / MAPS</a>
+      <a href="/workshop.html" aria-current="page">Workshop</a>
+      <a href="/cv.html">CV</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); document.querySelector('.nav').classList.toggle('is-open');">☰</button>
+  </div>
+</header>
+<main>
+  <div class="shell">
+    <header class="page-head">
+      <h1>Dungeon Crawler Carl — TTRPG</h1>
+    </header>
+    <p class="lead">A tabletop campaign built inside Matt Dinniman's <em>Dungeon Crawler Carl</em> — and a working experiment in getting an AI narrator to run a mechanically complex, emotionally coherent game without losing the thread. Below: what it is, and how to set it up yourself.</p>
+    <img class="essay-hero-image"
+         src="/dcc/dcc-thumb.jpg"
+         alt="Top-down view of a neon-lit dungeon floor, its chambers glowing red, blue, and magenta, scattered with dice and confetti"
+         width="1200"
+         height="750">
+    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 1.5rem 0 2rem;">
+      <a class="button button--accent arrow" href="https://github.com/bluebrazelton-dotcom/Dungeon-Crawler-Carl-TTRPGv2">Get the files on GitHub</a>
+      <a class="button arrow" href="#set-it-up">Jump to setup</a>
+    </div>
+    <hr class="rule" />
+
+    <h2>What this is</h2>
+    <p>Half game, half AI-cognition lab. It's a full 18-floor TTRPG campaign, and it's also a record of what it takes to make an AI narrator run one — the design decisions, the failures, and the rebuild that came out of them.</p>
+    <p>Version 1 proved an AI narrator <em>could</em> run a complex game across many sessions. It worked, and then it broke at scale. A post-mortem named five recurring failures: voice drift, mechanical drift, thread amnesia, contextual compression, and emotional-state loss. All five trace to one root cause — every session starts a fresh conversation with no persistent memory.</p>
+
+    <h2>What v2 does about it</h2>
+    <p>Version 2 doesn't pretend to fix the memory limit. It restructures the whole campaign to work inside it, on three principles:</p>
+    <p><strong>Separate what changes from what persists.</strong> Stable mechanics live in versioned reference docs that load every session. Cumulative story lives in structured logs that grow over time. Volatile creativity lives in pre-built floor packages. Nothing important depends on the model remembering last week.</p>
+    <p><strong>Take randomness out of the narrator's hands.</strong> An AI left to invent "random" outcomes trends toward tidy storytelling — but chaos is the whole identity of <em>Dungeon Crawler Carl</em>. An external roller (the Chaos Engine) hands the narrator results it has to make meaning from rather than ones it would have chosen.</p>
+    <p><strong>Build the world before you play in it.</strong> World-building, storytelling, and gameplay are split into separate session types, so the narrator arrives at a play session with a world to navigate instead of an empty room to improvise.</p>
+
+    <hr class="rule" />
+
+    <h2 id="set-it-up">Run it yourself</h2>
+    <p>The system is public and free. Setup works with any AI assistant that supports persistent projects; the steps below stay platform-agnostic, with Claude Projects as a worked example.</p>
+
+    <h3>What you'll need</h3>
+    <ul style="max-width: var(--measure); padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.5rem;">A project-capable AI assistant — one that lets you save files into a persistent workspace (Claude Projects, a ChatGPT Project, a Gemini Gem). The whole system depends on reloading the same reference docs each session.</li>
+      <li style="margin-bottom: 0.5rem;">The repo files.</li>
+      <li style="margin-bottom: 0.5rem;">A way to roll dice you don't control — the included Chaos Engine (Python), or any external roller.</li>
+      <li style="margin-bottom: 0.5rem;">About an hour to stand up your first floor.</li>
+    </ul>
+
+    <h3>Set it up</h3>
+    <ol style="max-width: var(--measure); padding-left: 1.5rem;">
+      <li style="margin-bottom: 0.75rem;"><strong>Get the files.</strong> Download or fork <a href="https://github.com/bluebrazelton-dotcom/Dungeon-Crawler-Carl-TTRPGv2">the repo</a>. The Master File Index is your table of contents — it says what to load and when.</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Create a project.</strong> Make a new persistent project in your assistant. <span class="muted">(Claude: New Project.)</span> This is your campaign's memory between sessions.</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Load the docs that never change.</strong> Add the persistent references from <code>00_Campaign</code> — the Architecture Blueprint, the voice bible, and the mechanics — plus the Master File Index. These load every session so the narrator stays consistent.</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Wire in randomness.</strong> Set up the Chaos Engine (<code>04_Chaos_Engine</code>) so results come from outside the model. This is the step people skip and regret — it's what keeps the narrator honest.</li>
+      <li style="margin-bottom: 0.75rem;"><strong>Start a Build session.</strong> Follow the Floor 1 build handoff to generate your first floor, then play it.</li>
+    </ol>
+
+    <h3>How a session runs</h3>
+    <p>Every floor moves through three session types, in order:</p>
+    <p><strong>Build</strong> — design the floor's space, mechanics, encounters, NPCs, and Chaos Engine tables. You set direction and constraints; the narrator makes design decisions inside them.</p>
+    <p><strong>Story</strong> — review where the narrative stands, surface open threads, set up payoffs. Collaborative.</p>
+    <p><strong>Play</strong> — run the actual game. You play, the narrator runs the world, the external roll decides the chaos.</p>
+    <p>Splitting them is the point. The narrator shows up to play with a world already built, instead of improvising one on the spot while also tracking rules, voice, and story.</p>
+
+    <h3>A note before you start</h3>
+    <p>This is a framework, not a finished product. Version 2 is the rebuilt architecture — a starting kit and a record of how the system works, not a turnkey campaign you press play on. Expect to adapt it to your assistant, your dice, and your table. That tinkering is most of the fun, and most of what the project is actually about.</p>
+
+    <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 2rem 0 1rem;">
+      <a class="button button--accent arrow" href="https://github.com/bluebrazelton-dotcom/Dungeon-Crawler-Carl-TTRPGv2">Get the files on GitHub</a>
+    </div>
+
+    <p class="small muted" style="margin-top: 2rem;">
+      A non-commercial fan project, inspired by the <em>Dungeon Crawler Carl</em> series by Matt Dinniman. Built in collaboration with an AI narrator.
+    </p>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <div>
+      <span>Blue Brazelton</span>
+      <span class="muted"> &middot; Northern Arizona University</span>
+    </div>
+    <div>
+      <a href="/contact.html">Contact</a>
+      <span class="muted"> &middot; </span>
+      <a href="/cv.html">CV</a>
+      <span class="muted"> &middot; Last updated July 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
