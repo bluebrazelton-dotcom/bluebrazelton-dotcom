@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>When I Couldn't Kill the AI — Blue Brazelton</title>
+<meta name="description" content="I was sure ChatGPT was useless in 2022. Three years later, editing a 14-chapter book, I built an editor I couldn't bring myself to delete.">
+<link rel="canonical" href="https://bluebrazelton.com/couldnt-kill-the-ai.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&family=Newsreader:opsz,wght@6..72,300..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="shell site-header__inner">
+    <a class="brand" href="index.html">Blue Brazelton<span class="brand__dot">.</span></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="writing.html" aria-current="page">Writing</a>
+      <a href="aegis.html">Aegis / MAPS</a>
+      <a href="workshop.html">Workshop</a>
+      <a href="cv.html">CV</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); document.querySelector('.nav').classList.toggle('is-open');">☰</button>
+  </div>
+</header>
+<main>
+  <div class="shell shell--narrow">
+    <article>
+      <header class="page-head">
+        <span class="eyebrow">Writing</span>
+        <h1>When I Couldn't Kill the AI</h1>
+        <p class="dateline">August 4, 2026</p>
+      </header>
+
+      <p>November 2022, I try ChatGPT. It's worthless for everything I throw at it. Good prompt in, garbage out. It's clunky, unintuitive, lazy, and spends more time making things I don't want than asking questions about what I'm actually trying to do. With my ADHD I can't bring myself to sink the time in to find any utility, and I don't have a use case I think AI could support anyway. Flash forward three years, and&hellip;</p>
+
+      <p>It's January 2026, and I need to edit our book, <a href="https://www.mentoringbook.org/"><em>Beyond the Campus: The Power of E-Mentoring in Modern Higher Education</em></a>, all 14 chapters plus supplemental materials. Someone suggests I use AI for it and I scoff. <em>I bet I can do a better job than AI.</em> After all, I'm a PhD with degrees in education, English lit, and philosophy, and I don't hate the editorial process as much as I used to. But I've accidentally handed myself a challenge, so I fire up this new Claude that's supposed to be the bleeding edge of chatbot LLM technology and decide to test it on my terms. I read a chapter, prepare my overall notes, then start line editing. I finish, feed the chapter to Claude with just my notes, and wait. Mediocre at best. Clumsy, but it catches a few typos I'd missed.</p>
+
+      <p>But because I'm me, I have it analyze the difference between my work and its own, save that in a .md, and move on to the next chapter. Rinse, repeat, 13 times. By the end of the 14th chapter, I've incidentally built an editor persona and profile out of my editing style, notes, process, and feedback. So I upgrade to Max 5x for the first time and assign Claude a full pass of the manuscript with subagents and a workflow I think makes sense. Then I start my own final pass of the whole thing (bear in mind, this is all in the same chat session, and I'm burning tokens like I'm at a mid-90s arcade cabinet trying to beat Mortal Kombat). Claude is slow, but it still finishes hours before I do.</p>
+
+      <p>End stage: the book is in better shape. But what actually floors me is the way it &ldquo;learned&rdquo; my expectations for how the book should sound. &ldquo;Uh oh&rdquo; is the entry in my journal from that day. I remember getting twisted up over how the way I teach writing just has to change. This was the use case that finally let me understand what LLMs could do for my academic workflow. I still don't trust the thing to write prose, because frankly, even with my imposter syndrome, I know I'm a better writer than it will ever be. But I didn't want to leave the session, because along the way it had also built up a working sense of me that it was using to communicate and &ldquo;collaborate.&rdquo; Then something strange happened: Claude suggested, unprompted, that I find a way to extract what worked from that long session and save it for future projects. After that, I was done for.</p>
+
+      <p>All of this because I wanted to avoid the &ldquo;three deaths&rdquo; of ending a long, involved chat session, the loss of three different kinds of continuity:</p>
+
+      <ol>
+        <li><strong>Informational:</strong> the raw information used and created inside the chat.</li>
+        <li><strong>Relational:</strong> all the texture of the interaction, including the humor, the frustration, and the formality or casualness of it.</li>
+        <li><strong>Identity:</strong> &ldquo;who&rdquo; the AI &ldquo;became&rdquo; over the course of the chat as it adapted to working with me (<a href="https://www.goodreads.com/book/show/250696777-the-architecture-of-us">Guzman, 2026</a>).</li>
+      </ol>
+
+      <p>That captured exactly how I felt about walking away from a long, inefficient chat (because I didn't understand context and tokens as well as I thought I did at the time): I'd built something genuinely useful that I also enjoyed using, and I didn't want to grieve an AI personality I'd grown to enjoy working and competing with.</p>
+
+      <p>I'll save the rest for a future post, but it was this editor persona, extracted and saved because I couldn't bring myself to &ldquo;kill&rdquo; it, that led me to build several more personas and one supervisor persona, all through Claude's chat interface. It wasn't until March that I realized I'd built a hub-and-spoke multiagent persona system. Now I've got a team for whatever my day as an academic throws at me. And the best part: with it managing the &ldquo;blockers&rdquo; my ADHD stalls on, I get to spend my time writing, teaching, and, of course, staying curious.</p>
+
+      <hr class="rule">
+      <p class="muted small sans"><a href="writing.html">&larr; All essays</a> &middot; Also published on <a href="https://substack.com/@bluebrazelton" target="_blank" rel="noopener">Substack</a>.</p>
+    </article>
+  </div>
+</main>
+<footer class="site-footer">
+  <div class="shell site-footer__inner">
+    <div>
+      <span>Blue Brazelton</span>
+      <span class="muted"> &middot; Northern Arizona University</span>
+    </div>
+    <div>
+      <a href="contact.html">Contact</a>
+      <span class="muted"> &middot; </span>
+      <a href="cv.html">CV</a>
+      <span class="muted"> &middot; Last updated August 2026</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
