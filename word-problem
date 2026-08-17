@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>It's just a word problem — Blue Brazelton</title>
+  <meta name="description" content="I hated coding in school because it was tedious. Twenty years later, tedium is exactly what I hand to AI, and prompting turns out to be a word problem." />
+  <link rel="canonical" href="https://bluebrazelton.com/word-problem.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&family=Newsreader:opsz,wght@6..72,300..600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="shell site-header__inner">
+      <a class="brand" href="index.html">Blue Brazelton<span class="brand__dot">.</span></a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="writing.html">Writing</a>
+        <a href="aegis.html">Aegis / MAPS</a>
+        <a href="workshop.html">Workshop</a>
+        <a href="cv.html">CV</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); document.querySelector('.nav').classList.toggle('is-open');">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="shell shell--narrow">
+      <article>
+
+        <header class="page-head">
+          <span class="eyebrow">Writing</span>
+          <h1>It's just a word problem</h1>
+          <p class="dateline">August 18, 2026</p>
+        </header>
+
+        <p>When I was in school, I really hated coding. I was lazy with my JavaScript and Python, worse with my HTML. I understood the logic of the programming task and most of the math, I just found the whole process tedious. So I dropped it, and I never picked it back up until this summer, because tedium turns out to be a great use case for GenAI in my world. Its ability to never get bored with rote work is honestly what keeps me hunting for new parts of my job to offload, the low-stakes ones where a bad answer costs me almost nothing. That makes some people nervous, and I get that, but when I say “I used AI” I don't mean I threw in a few prompts and trusted whatever came back. For me, each task is its own puzzle, essentially a word problem.</p>
+
+        <p>In my personal and professional life, all problems are word problems. Everything comes down to communication, and how well I understand or am understood is the biggest variable in whether the solution works. When I finally admitted that my approach to prompting was the thing standing between me and any meaningful use of these tools, I journaled about it for a while and landed somewhere embarrassing: I wasn't playing the game right. And an LLM is a game, pretty easily described as one. You make a guess about how to get what you want out of a probabilistic model, and then you find out how well you guessed.</p>
+
+        <p>Throw a dart, see how close you land. Or, my favorite version, picture a gigantic sea of cups, each one at a different height and with a different size rim, and a prompt is just tossing a ball out toward the general area. We can improve how the cups are organized. We can even standardize the rims a bit. But the best play is to get better at aiming. You'll still get some truly wacky inconsistency (if you've run the same task several times, you've probably watched one agent invent a wild interpretation of your harness and hooks that the previous dozen handled fine), and better aim won't stop that, it just buys you fewer of them. Contemporary models, and I mean summer 2026 as I write this, are significantly better than I thought would be possible, and there's good reason to believe they'll keep improving, though nobody really knows where the ceiling is. Right now, giving an LLM access to a project folder and writing it instructions, skills, and agents is a low-tech entry point for anyone who wants to work on their aim, as long as they understand the whole thing is a word problem.</p>
+
+        <p>I played logic games as a kid, and if you ever drew a grid to work out which person had which hat and which ice cream flavor, you already know what I mean. We teach logic in a lot of different ways, but hearing the problem inside the story is always the first step in solving it. A strong set of standing instructions for how the model should approach work in a project is a good way to narrowly engage a potentially powerful tool. It's also a set of walls. Every margin you add is a limitation you've chosen, so the work becomes a balance of using language to get the scope as close to your intention as you can. But you're already hearing the problems with that.</p>
+
+        <p>These days, all I really hear are the problems. I've talked to enough other PhDs to know we all blame our doctorates for the critique-first, ask-questions-later reflex, which is a convenient story and not a true one. I study and teach leadership, and hearing problems differently is the thing I've spent the most effort reading and reflecting on. So when I tell you that degrees in philosophy, English, and education have left me uniquely positioned to understand the problems in the tasks I hand to AI, please hear how badly I want that to be a credential and not just a description of a guy who likes words.</p>
+
+        <p>Which is the actual point. I approach every project narratively, I communicate with the model in verbose and redundant ways, and none of that is token-efficient. It's just how I learned to play. Solving puzzles with AI has essentially become my dopamine machine, and I know I'm not alone in that (though I do wonder how many people who feel the same way are also neurodivergent, which is another paper I need to finish and submit). So I'm looking forward to hearing how everyone else is aiming.</p>
+
+        <hr class="rule" />
+
+        <p class="muted small sans"><a href="writing.html">← All essays</a> · Also published on <a href="https://substack.com/@bluebrazelton">Substack</a>.</p>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell site-footer__inner">
+      <div>Blue Brazelton · Northern Arizona University</div>
+      <div><a href="contact.html">Contact</a> · <a href="cv.html">CV</a> · Last updated August 2026</div>
+    </div>
+  </footer>
+
+</body>
+</html>
