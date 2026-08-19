@@ -62,10 +62,9 @@
     }
     code {
       font-size: 0.8125em;
-      background: #f0f0f0;
+      background: oklch(0.95 0 0);
       padding: 0.1em 0.35em;
       border-radius: 3px;
-    }
     }
   </style>
 </head>
@@ -186,78 +185,4 @@
   });
 </script>
 </body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Pipeline — The Dimming — Blue Brazelton</title>
-  <meta name="description" content="The technical production pipeline behind The Dimming, 108.1 FM: Suno, ElevenLabs, Git Bash, ffmpeg, Midjourney, and YouTube.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://www.bluebrazelton.com/styles.css?v=6">
-  <style>
-    .dimming-section-head {
-      font-family: var(--sans);
-      font-size: 0.6875rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      margin: 3rem 0 0.8rem;
-      display: block;
-    }
-    .back-link {
-      display: inline-block;
-      font-family: var(--sans);
-      font-size: 0.8125rem;
-      margin-bottom: 2rem;
-      color: var(--muted);
-      text-decoration: none;
-    }
-    .back-link:hover { color: var(--accent); }
-    .pipeline-chain {
-      font-family: var(--sans);
-      font-size: 0.875rem;
-      text-align: center;
-      color: var(--muted);
-      margin: 1.5rem 0 2rem;
-      line-height: 2;
-    }
-    .pipeline-chain strong {
-      color: var(--ink);
-    }
-    .spec-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 1rem 0 1.5rem;
-      font-size: 0.875rem;
-    }
-    .spec-table th,
-    .spec-table td {
-      text-align: left;
-      padding: 0.4rem 0.75rem;
-      border-bottom: 1px solid var(--rule);
-    }
-    .spec-table th {
-      font-family: var(--sans);
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
-    code {
-      font-size: 0.8125em;
-      background: oklch(0.95 0 0);
-      padding: 0.1em 0.35em;
-      border-radius: 3px;
-    }
-    @media (prefers-color-scheme: dark) {
-      code { background: oklch(0.25 0 0); }
-    }
-  </style>
-</head>
-<body>
-
+</html>
