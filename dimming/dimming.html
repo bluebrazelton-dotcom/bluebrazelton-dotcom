@@ -1,95 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turning the Light On: Creating The Dimming — Blue Brazelton</title>
-  <meta name="description" content="Building The Dimming, a fake AI radio station, took 40 hours over three weeks. What I learned about audio LLMs, purposeful AI use, and the slop path.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Dimming — Blue Brazelton</title>
+  <meta name="description" content="The Dimming, 108.1 FM: a 45-episode AI radio drama set in a dying Upper Peninsula town. Scripts, story, and the making-of a creative AI project.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=EB+Garamond:wght@400;500&family=Newsreader:opsz,wght@6..72,300..600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css?v=6">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.bluebrazelton.com/styles.css?v=6">
+  <style>
+    /* Dimming-specific overrides */
+    .dimming-hero {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .dimming-hero img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border: 1px solid var(--rule);
+    }
+    .dimming-cta-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 2.5rem;
+    }
+    .dimming-section-head {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin: 3rem 0 0.8rem;
+      display: block;
+    }
+    .dimming-update {
+      font-family: var(--sans);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin: 2.5rem 0 0.6rem;
+    }
+    .dimming-resources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+      gap: 1.25rem;
+      margin: 2rem 0 0;
+    }
+    .dimming-resources .feature {
+      display: flex;
+      flex-direction: column;
+    }
+    .dimming-resources .feature__body {
+      flex: 1;
+    }
+  </style>
 </head>
-<body data-theme="warm" data-accent="warmblue" data-type="editorial">
+<body>
 
-<header class="site-header">
-  <div class="shell site-header__inner">
-    <a class="brand" href="/index.html">Blue Brazelton<span class="brand__dot">.</span></a>
-    <nav class="nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
-      <a href="/about.html">About</a>
-      <a href="/research.html">Research</a>
-      <a href="/writing.html">Writing</a>
-      <a href="/aegis.html">Aegis / MAPS</a>
-      <a href="/workshop.html" aria-current="page">Workshop</a>
-      <a href="/cv.html">CV</a>
-      <a href="/contact.html">Contact</a>
-    </nav>
-    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.getAttribute('aria-expanded')==='true'?'false':'true'); document.querySelector('.nav').classList.toggle('is-open');">☰</button>
+<!-- Site header -->
+<header class="site-header" role="banner">
+  <div class="shell">
+    <div class="site-header__inner">
+      <a href="https://www.bluebrazelton.com/index.html" class="brand">Blue Brazelton<span class="brand__dot">.</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="https://www.bluebrazelton.com/index.html">Home</a>
+        <a href="https://www.bluebrazelton.com/about.html">About</a>
+        <a href="https://www.bluebrazelton.com/research.html">Research</a>
+        <a href="https://www.bluebrazelton.com/writing.html">Writing</a>
+        <a href="https://www.bluebrazelton.com/aegis.html">Aegis / MAPS</a>
+        <a href="https://www.bluebrazelton.com/workshop.html" aria-current="page">Workshop</a>
+        <a href="https://www.bluebrazelton.com/cv.html">CV</a>
+        <a href="https://www.bluebrazelton.com/contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
   </div>
 </header>
 
 <main>
-  <div class="shell">
+  <div class="shell shell--narrow">
 
-    <header class="page-head">
-      <img class="essay-hero-image"
-           src="/dimming/hero.jpg"
-           alt="Abandoned gas station at night, fog rolling in, a single overhead light glowing warm amber under the service canopy"
-           width="2600"
-           height="1455">
-      <h1>Turning the Light On</h1>
-      <p class="page-head__sub">Creating The Dimming</p>
-      <p style="margin-top: 1.25rem; margin-bottom: 0;">
-        <a class="button button--accent arrow" href="https://www.youtube.com/@TheDimming108.1FM">Listen on YouTube & please Like & Subscribe. Dimming 108.1FM is an on-going project.</a>
-      </p>
-    </header>
+    <!-- Hero -->
+    <div class="dimming-hero">
+      <img src="https://www.bluebrazelton.com/dimming/hero.jpg"
+           alt="Abandoned gas station at night, fog rolling in, a single overhead light glowing warm amber under the service canopy">
+    </div>
 
+    <h1>The Dimming</h1>
+    <p class="lead">108.1 FM &mdash; 45 nights from a town that refused to be forgotten.</p>
+
+    <div class="dimming-cta-row">
+      <a href="https://www.youtube.com/@TheDimming108.1FM" class="button button--accent">Listen on YouTube &rarr;</a>
+      <a href="https://www.bluebrazelton.com/dimming/The%20Dimming%20-%20Complete%20Scripts.pdf" class="button">Read the Scripts (PDF)</a>
+    </div>
+
+    <hr class="rule">
+
+    <!-- The Story -->
     <article>
+      <span class="dimming-section-head">The Story</span>
 
-      <p>Anyone who says "just enter your prompt and get what you want with AI" has never tried that premise. Across Suno, Elevenlabs, Claude, and ChatGPT, I can assure you that the "simple" task of creating a two hour video with ambient instrumental music and an intermittent DJ that met any sort of standard of "natural" was nigh impossible. There were dozens of obstacles, puzzles, and problems to negotiate via prompt language, and even with my trusty Aegis Framework, creating the foundation for this project took about 40 hours over 3 weeks. But this is because I set and maintained standards for what I was looking for, and by rule for this project, I couldn't settle. The product is real, but the process was the point. And I know more about audio LLM processing and prompting than I thought was necessary for any aspect of my personal or professional life. Each tool has limitations, and whether through user error or model design, creating an ideal deliverable was more expensive than I should share here (okay about $30 for a month of Suno Premier and $100 for Elevenlabs).</p>
+      <p>I&rsquo;ve probably never finished any creative story I&rsquo;ve started, whether in my head or in any real way. I&rsquo;ve written short stories, songs, poems (including notebooks of rap lyrics believe it or not), stand-up routines, short plays, etc. but none of them ever really finished the story I had in mind when I set out. I lose interest, doubt myself, or just give up for some other reason that I wasn&rsquo;t able to admit to myself then. But I needed to tell this story, and I doubted I would finish this one anyway, yet I still started. To tell this story and to learn more about genAI, I built a fake and impossible radio station using AI for the music, the audio, and toward the end entire scripts. If you do listen, you may notice things change from time to time, as what I learned about AI changed the way I was able to tell the story, and how to use the tools at my disposal.</p>
 
-      <p>Suno does not like generating long instrumentals, as the lack of text in the lyrics prompt meant that there were very few expectations to address. And no, simply stating a song length is not possible and any attempts are misinterpreted. I had to use the law of averages, the extend, mashup, and cover tools just to get anything close to workable for my vision. Just a basic soundbed of 8 different song moods and 6-10 unique versions that could settle into a beautiful set of tones.</p>
+      <p>This essay is mostly the technical and learning story of The Dimming, and you can listen to the videos or read the scripts if you&rsquo;d like to learn more about the fictional town of Dimming, Michigan, an Upper Peninsula settlement experiencing its last flickers of life and light. Of a town that didn&rsquo;t want to be forgotten and called Cass (yes, that Cass) to be its lighthouse keeper. But Cass also runs a mobile pirate radio station from her sprinter van; as she could never stay in one place for very long, Dimming called her to tend to its light, and maybe even prevent it from dimming away into darkness. Just like so many rural communities in America, Dimming is barely holding on to history, purpose, people, and existence. This is the story of all of us who, as kids, couldn&rsquo;t wait to leave the one-road town that we called home, and now wish we would have appreciated it for what it was.</p>
 
-      <p>Elevenlabs is frankly amazing if you dig into the various features and tips to create natural and conversational tone. But turning that into what I envisioned for DJ Cass (short for Cassiopea), required random chance. But eventually, we found our way together. But it cost a lot of tokens. The voice of Cass is exactly what I wanted, but directing "her" to the emotion I was looking for required a level of direction via prompting that is honestly more effort than I was prepared for.</p>
+      <p>Thanks for listening or reading about The Dimming, 108.1 FM.</p>
 
-      <p>Claude was great for logistics, but it also assumed that I would be able to easily extract what I wanted from other tools. The entire radio video pipeline was orchestrated by my Claude strategist, but "he" is pretty terrible at understanding emotion. I wonder why. ChatGPT was better, but only in the creation of directive structure for Elevenlabs. Again, the most important variable was random chance and my patience. ChatGPT helped me add direction to the Cass drops, but I burned through half my pro level token usage just developing the voice and two videos worth of audio.</p>
+      <hr class="rule">
 
-      <blockquote class="pullquote">
-        <p>AI tools are powerful, but without AI literacy, you're relying on random chance. And low standards.</p>
-      </blockquote>
+      <!-- Building -->
+      <span class="dimming-section-head">Building &ldquo;The Dimming, 108.1 FM&rdquo;</span>
 
-      <p>I ended up needing some visual media, so I went with Midjourney but had to also tag in Photopea in order to get the look I had in mind. All of which Claude was useful for: all of the image generating and editing through writing prompts, finding features, figuring out values, and ultimately translating me for the other tools.</p>
+      <p>Anyone who says &ldquo;just enter your prompt and get what you want with AI&rdquo; has never tried that premise. Across Suno, Elevenlabs, Claude, and ChatGPT, I can assure you that the &ldquo;simple&rdquo; task of creating a two hour video with ambient instrumental music and an intermittent DJ that met any sort of standard of &ldquo;natural&rdquo; was nigh impossible. There were dozens of obstacles, puzzles, and problems to negotiate via prompt language, and even with my trusty Aegis Framework, creating the foundation for this project took about 40 hours over 3 weeks. But this is because I set and maintained standards for what I was looking for, and by rule for this project, I couldn&rsquo;t settle. The product is real, but the process was the point. And I know more about audio LLM processing and prompting than I thought was necessary for any aspect of my personal or professional life. Each tool has limitations, and whether through user error or model design, creating an ideal deliverable was more expensive than I should share here (okay about $30 for a month of Suno Premier and $100 for Elevenlabs).</p>
 
-      <p>Audio processing and video rendering were done with Git Bash, and this is an incredible tool as well, probably the most impressive thing that I got exposed to through this process. I wasn't writing the actual code for Bash, Claude was, but I had no idea such functionality was available to me. Git Bash is the tool I most need to learn next, and across all of the different tools that this project required, having it behave predictably was such a relief after so much fiddling with probabilistic AI tools for the first 90% of this project.</p>
+      <p>Suno does not like generating long instrumentals, as the lack of text in the lyrics prompt meant that there were very few expectations to address. And no, simply stating a song length is impossible and any attempts are misinterpreted. I had to use the law of averages, the extend, mashup, and cover tools just to get anything close to workable for my vision. Just a basic soundbed of 8 different song moods and 6-10 unique versions that could settle into a beautiful set of tones.</p>
 
-      <p>AI tools are powerful, but without AI literacy, you're relying on random chance. And low standards (and all my fellow instructors out there know exactly what I'm talking about). But the power is there, the potential is real, but is it economical? The Dimming 108.1 FM would have to go viral and be sustained by the users before it could ever provide a return on investment, because I burned through a lot of tokens, but that was the discovery phase, and now that the pipeline is built, this could become self-sustaining. There are enough song beds generated to change up the music, scripts can be generated off of the ones I've already written and the template I used on each, and then assuming you aren't picky about the voice over, that could be automated too. But that would degenerate into slop much faster than I could tolerate.</p>
+      <p>Elevenlabs is frankly amazing if you dig into the various features and tips to create a natural and conversational tone. But turning that into what I envisioned for DJ Cass (short for Cassiopea), required random chance. But eventually, we found our way together. But it cost a lot of tokens. The voice of Cass is exactly what I wanted, but directing &ldquo;her&rdquo; to the emotion I was looking for required a level of direction via prompting that is honestly more effort than I was prepared for.</p>
 
-      <p>Whether or not the sloppification could be managed, well I need more time and a fresh bucket of tokens before I'll bother attempting. But, these tools are more complicated than I gave them credit for, and so the experiment has been a success. What we want is not what we get, and this is not something that can be fixed simply through the best prompting imaginable. Garbage in, garbage out. But if you put the effort in (and change what "effort" looks like for you and your skill set), you might even impress yourself.</p>
+      <p>Claude was great for logistics, but it also assumed that I would be able to easily extract what I wanted from other tools. The entire radio video pipeline was orchestrated by my Claude strategist, but &ldquo;he&rdquo; is pretty terrible at understanding emotion. I wonder why. ChatGPT was better, but only in creating directive structures for Elevenlabs, at least initially. Again, the most important variable was random chance and my patience. ChatGPT helped me add direction to the Cass drops, but I burned through half my pro level token usage just developing the voice and two videos worth of audio.</p>
+
+      <p>I ended up needing some visual media, so I went with Midjourney but had to also tag in Photopea to get the look I had in mind. All of which Claude was useful for: all of the image generating and editing through writing prompts, finding features, figuring out values, and ultimately translating me for the other tools.</p>
+
+      <p>Audio processing and video rendering were done with Git Bash, and this is an incredible tool as well, probably the most impressive thing that I got exposed to through this process. I wasn&rsquo;t writing the actual code for Bash, Claude was, but I had no idea such functionality was available to me. Git Bash is the tool I most need to learn next, and across all of the different tools that this project required, having it behave predictably was such a relief after so much fiddling with probabilistic AI tools for the first 90% of this project.</p>
+
+      <aside class="pullquote">AI tools are powerful, but without AI literacy, you&rsquo;re relying on random chance. And low standards.</aside>
+
+      <p>AI tools are powerful, but without AI literacy, you&rsquo;re relying on random chance. And low standards (and all my fellow instructors out there know exactly what I&rsquo;m talking about). But the power is there, the potential is real, but is it economical? The Dimming 108.1 FM would have to go viral and be sustained by the users before it could ever provide a return on investment, because I burned through a lot of tokens, but that was the discovery phase, and now that the pipeline is built, this could become self-sustaining. There are enough song beds generated to change up the music, scripts can be generated off of the ones I&rsquo;ve already written and the template I used on each, and then assuming you aren&rsquo;t picky about the voice over, that could be automated too. But that would degenerate into slop much faster than I could tolerate.</p>
+
+      <p>Whether or not the sloppification could be managed, well I need more time and a fresh bucket of tokens before I&rsquo;ll bother attempting. But, these tools are more complicated than I gave them credit for, and so the experiment has been a success. What we want is not what we get, and this is not something that can be fixed simply through the best prompting imaginable. Garbage in, garbage out. But if you put the effort in (and change what &ldquo;effort&rdquo; looks like for you and your skill set), you might even impress yourself.</p>
+
+      <!-- Update 1 -->
+      <p class="dimming-update">Update &mdash; July 23, 2026</p>
+
+      <p>Starting in mid-July, I decided to improve the process, since I was able to get to episode 18 and not miss a daily update. This originally was just an exercise, but now I want to tell a full story. So, I worked with ChatGPT and created a new project for the creative part of The Dimming. I am still writing the story, but ChatGPT now drafts the scripts in full for me to edit. We spent several hours collaborating on a full storyboard based on what I wanted to accomplish with the story. We backfilled the storyboard with the previous episodes and continuity so we could be sure to stay on track. This was a major step I should have taken at the beginning, but as with all things, I have learned a lot in the process.</p>
+
+      <p>To improve the automated script writing further, I ran an audit of completed scripts through ep018 to get average word counts. Using Elevenlabs for voice generation can be expensive, and getting a &ldquo;take&rdquo; that I like sometimes requires a few passes, so efficiency with the script is important.</p>
+
+      <p>I still had well over half of my tokens for the first month of Suno Premier, so I rebuilt and extended the sound beds. Starting with ep019, the songs on the radio should sound better, with more variety. Just part of what I learned, but also to me it felt like Cass deserved a better radio station than I had given her. Suno v5.5 had been updated with some improvements, including a song duration setting that still isn&rsquo;t deterministic but it is more reliable than before, so getting songs that are 6 minutes long became feasible and I could smooth out the planning and processing. I went ahead and improved the processing and rendering pipeline with some additional efficiencies and better blending from song to song, and that is another lesson in working with audio. Finally, I actually wrote start up instructions so that future episode preparation and processing sessions would run more smoothly. I still use Git Bash for this so that I stay in control, but further automation is possible if I want to chase that later.</p>
+
+      <p>I decided that The Dimming will end with ep045. Stories need to end, and the next time I use this style of storytelling, I will have this experience to build from. I still reserve one important piece as the human in the loop: I inject a memory that Cass recalls every episode. This is part of the autobiographical nature of the story I&rsquo;ve been trying to tell. Growing up in a small community, I&rsquo;ve had this story in me trying to get out. While I&rsquo;m still happy I &ldquo;made it out,&rdquo; I still dream of returning to small-town life and the kind of community I didn&rsquo;t appreciate as a child and then angsty teenager. These memories are mine, but the story is for all those other millennials out there who had a small-town life but big-city dreams, and now wish we had appreciated what we had a little more before running away.</p>
+
+      <!-- Update 2 -->
+      <p class="dimming-update">Update &mdash; August 19, 2026</p>
+
+      <p>Today, the final episode of the Dimming went live and the story is complete. I learned a lot more than I thought I would by taking on this project. It wasn&rsquo;t necessary, surprisingly expensive, not even close to what I set out to do, and took up significantly more time than I thought it would. But my understanding of probabilistic models is much deeper and my appreciation for digital storytelling is much richer now. I set out to tell one story about a world where the light was going out and found myself wanting to be optimistic about the small bit of world I was building. It is intentionally formulaic so that I could test out an automated process, which is what I most wish I would have done differently (well that and actually storyboarding things out before I started, but I wasn&rsquo;t even sure I was going to finish this at first). The only thing that wasn&rsquo;t worth automating was the script writing. Which is, ultimately, the thing I wanted to do most. I&rsquo;ll likely try something like this again, telling a different story, but with confidence that LLMs will never have an imagination so I&rsquo;m better off using my own.</p>
 
     </article>
 
-    <p style="margin-top: 2.5rem;">
-      <a class="button button--accent arrow" href="https://www.youtube.com/@TheDimming108.1FM">Listen on YouTube</a>
-    </p>
+    <hr class="rule">
 
-  </div>
+    <!-- Resources -->
+    <span class="dimming-section-head">Resources</span>
+
+    <div class="dimming-resources">
+      <div class="feature">
+        <div>
+          <p class="feature__tag">Listen</p>
+          <p class="feature__title">The Dimming on YouTube</p>
+          <p class="feature__body">All 45 episodes, each a 2-hour ambient radio broadcast with Cass at the mic.</p>
+          <a href="https://www.youtube.com/@TheDimming108.1FM" class="feature__link arrow">YouTube channel</a>
+        </div>
+      </div>
+      <div class="feature">
+        <div>
+          <p class="feature__tag">Read</p>
+          <p class="feature__title">Complete Scripts (PDF)</p>
+          <p class="feature__body">All 45 episode scripts in a single document, with table of contents and stage directions.</p>
+          <a href="https://www.bluebrazelton.com/dimming/The%20Dimming%20-%20Complete%20Scripts.pdf" class="feature__link arrow">Download PDF</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- .shell -->
 </main>
 
-<footer class="site-footer">
-  <div class="shell site-footer__inner">
-    <div>
-      <span>Blue Brazelton</span>
-      <span class="muted"> &middot; Northern Arizona University</span>
-    </div>
-    <div>
-      <a href="/contact.html">Contact</a>
-      <span class="muted"> &middot; </span>
-      <a href="/cv.html">CV</a>
-      <span class="muted"> &middot; Last updated May 2026</span>
+<!-- Site footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="shell">
+    <div class="site-footer__inner">
+      <div>
+        <strong>Blue Brazelton</strong>
+        <span> &middot; Northern Arizona University</span>
+      </div>
+      <div>
+        <a href="https://www.bluebrazelton.com/contact.html">Contact</a>
+        <span> &middot; </span>
+        <a href="https://www.bluebrazelton.com/cv.html">CV</a>
+        <span> &middot; Last updated August 2026</span>
+      </div>
     </div>
   </div>
 </footer>
+
+<script>
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('.nav').classList.toggle('is-open');
+  });
+</script>
 
 </body>
 </html>
