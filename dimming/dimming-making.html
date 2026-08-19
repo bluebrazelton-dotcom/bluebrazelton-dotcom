@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>How It Was Made — The Dimming — Blue Brazelton</title>
+  <meta name="description" content="Behind the scenes of The Dimming, 108.1 FM: the station bible, finding Cass's voice, building 296 music beds, storyboarding with ChatGPT, and the human in the loop.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..900;1,8..60,300..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.bluebrazelton.com/styles.css?v=6">
+  <style>
+    .dimming-section-head {
+      font-family: var(--sans);
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin: 3rem 0 0.8rem;
+      display: block;
+    }
+    .back-link {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 0.8125rem;
+      margin-bottom: 2rem;
+      color: var(--muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--accent); }
+    .voice-rule {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Site header -->
+<header class="site-header" role="banner">
+  <div class="shell">
+    <div class="site-header__inner">
+      <a href="https://www.bluebrazelton.com/index.html" class="brand">Blue Brazelton<span class="brand__dot">.</span></a>
+      <nav class="nav" aria-label="Primary">
+        <a href="https://www.bluebrazelton.com/index.html">Home</a>
+        <a href="https://www.bluebrazelton.com/about.html">About</a>
+        <a href="https://www.bluebrazelton.com/research.html">Research</a>
+        <a href="https://www.bluebrazelton.com/writing.html">Writing</a>
+        <a href="https://www.bluebrazelton.com/aegis.html">Aegis / MAPS</a>
+        <a href="https://www.bluebrazelton.com/workshop.html">Workshop</a>
+        <a href="https://www.bluebrazelton.com/cv.html">CV</a>
+        <a href="https://www.bluebrazelton.com/contact.html">Contact</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Toggle navigation">&#9776;</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="shell shell--narrow">
+
+    <a href="https://www.bluebrazelton.com/dimming/dimming.html" class="back-link">&larr; Back to The Dimming</a>
+
+    <h1>How It Was Made</h1>
+
+    <p class="lead">The creative decisions, tools, and process behind 45 episodes of AI radio.</p>
+
+    <hr class="rule">
+
+    <!-- THE STATION BIBLE -->
+    <span class="dimming-section-head">The Station Bible</span>
+
+    <p>Before the first episode aired, The Dimming needed a document that governed what the show <em>is</em>. The station bible (v1.6 by series end) established the ethos, Cass's voice character, the setting of Dimming, Michigan, and the production constraints that kept the show consistent across 45 episodes.</p>
+
+    <p>The bible's opening section, "The Ethos," is weighted above everything else in production decisions. Its core discipline: Cass never explains the ending. She lives inside a slow apocalypse and lets the listener feel it through texture, not exposition. The dark is weather, not tragedy. There is warmth. There is even, sometimes, dry humor. What there is never: panic, despair, sermonizing, or self-pity.</p>
+
+    <p>Cass's voice is governed by eight rules that stayed consistent from ep001 to ep045: under 60 seconds per interjection (a guideline more than a hard ceiling, as several episodes proved); never name the apocalypse; talk to one person, not an audience; warm before sad; small, concrete, and human; dry, never jokey; no questions she expects answered; and let the music do the heavy lifting. These rules were written before Cass had ever spoken on air. They held.</p>
+
+    <p>The bible also tracks the show's evolving cosmology. What started as background detail (the Vesper's impossible grocery brands, the silver light across the street) became a load-bearing restoration arc across the middle third of the series. The production-side framing, that Cass's presence and storytelling is bringing Dimming back to life through witness, was tracked in the bible but never stated on air. The audience-side reveal stayed slow-burn.</p>
+
+    <!-- FINDING CASS -->
+    <span class="dimming-section-head">Finding Cass</span>
+
+    <p>Cass's voice was generated in ElevenLabs. The voice character spec was clear: mid-range, unhurried, a little worn but never weary. Warm before sad. The kind of voice that sounds like it is smiling faintly at something only it can see. Speaks softly enough that you lean in.</p>
+
+    <p>Getting there was harder than the spec suggests. ElevenLabs is capable of extraordinary voice generation if you dig into the features and parameters, but directing a synthetic voice toward the emotion you are looking for requires a level of prompting that is more effort than most people expect. The controlling variable was random chance. Each take was a roll of the dice, and the script's stage directions (quiet, pause, small laugh, wistful) were the only levers available. Some takes landed on the first generation. Others burned through a dozen attempts before one felt right.</p>
+
+    <p>The voice processing pipeline added the final layer. Every Cass interjection ran through a "radio color" chain: highpass at 150 Hz, lowpass at 7000 Hz, light saturation, near-zero vibrato, and faint noise and hum. The result sounds like a real voice coming through an old FM receiver. Not clean. Not digital. A candle, not a spotlight.</p>
+
+    <!-- THE MUSIC -->
+    <span class="dimming-section-head">The Music of Dimming</span>
+
+    <p>Music makes up over 90% of each two-hour episode. Every bed was generated in Suno, and by series end, the library held 296 tracks across 20 mood categories: quiet-night, warm, last-porchlight, dry-macabre, ember, greenhouse, small-hours, still-sings, taillights, and more.</p>
+
+    <p>Suno does not like generating long instrumentals. The absence of lyrics in the prompt means fewer structural expectations for the model, so early attempts produced tracks that wandered, looped, or cut off unpredictably. Duration was not controllable in early versions; simply stating a song length was misinterpreted or ignored. Getting usable beds required the law of averages, the extend and mashup tools, and patience.</p>
+
+    <p>The music library was rebuilt at ep019 (the "Wave 2" regeneration). Suno v5.5 added a duration setting that, while still not deterministic, was reliable enough to target 6-minute tracks consistently. The result was a cleaner, more varied library and smoother episode planning: approximately 21 beds per episode instead of the previous 27, each covering about 5 minutes and 55 seconds of net runtime after crossfades.</p>
+
+    <p>Bed selection followed the episode's emotional shape. A mood arc tracked from sign-on through the five interjection slots to sign-off: arrival or carrier-wave tones at the top, quiet-night workhorses for the middle, a dry-macabre or warm/last-porchlight bed for the mystery or nostalgia beats, and small-hours beds closing toward the sign-off fade. The crossfade between beds was set at 5 seconds after testing proved that longer overlaps (7 seconds) actually made well-matched pairs sound worse rather than better.</p>
+
+    <!-- STORYBOARDING -->
+    <span class="dimming-section-head">Storyboarding with ChatGPT</span>
+
+    <p>For the first 18 episodes, there was no storyboard. Cass's story unfolded night by night, each script written against whatever the previous episodes had established. The continuity document grew, but the trajectory was intuitive rather than planned.</p>
+
+    <p>At ep018, the process changed. A ChatGPT project was created specifically for the creative side of The Dimming. Several hours went into building a full storyboard collaboratively, working backward from what the story needed to accomplish and forward from the 18 episodes already on air. The continuity was backfilled, the station bible was loaded, and ChatGPT began drafting full scripts for editing.</p>
+
+    <p>The collaboration worked because the division of labor was clear. ChatGPT drafted scripts within the established voice, structure, and continuity. The editing pass was where the human work lived: tightening language, catching voice drift, and injecting the autobiographical memory that grounds every episode's nostalgia beat. ChatGPT is a competent structural collaborator. It is not an imagination.</p>
+
+    <p>This was the step that should have been taken at the beginning. Storyboarding changes everything about how a serial narrative holds together. But the first 18 episodes, written by feel, have their own quality. They found the show's voice precisely because they were not planned.</p>
+
+    <!-- THREE SCRIPT ERAS -->
+    <span class="dimming-section-head">Three Script Eras</span>
+
+    <p>The scripts evolved through three distinct formats, each reflecting what was learned about both the tools and the story.</p>
+
+    <p><strong>Raw flowing text (ep001&ndash;012):</strong> Early scripts read as continuous prose. Cass's interjections flow naturally without section headers. These episodes were written entirely by hand, and the format mirrors the exploratory, unstructured feel of early Dimming. The story was finding itself.</p>
+
+    <p><strong>Transitional (ep013&ndash;016):</strong> Section headers begin appearing but are not yet standardized. The scripts start to formalize around the five-slot structure (Intro, Vesper Inventory, The Trio, Nostalgia Bait, Outro) but the formatting varies episode to episode.</p>
+
+    <p><strong>Fully structured (ep017&ndash;045):</strong> Every script follows the canonical five-voice-over structure with consistent section headers. Scripts include stage directions in brackets, word-count awareness (for ElevenLabs token efficiency), and explicit bible-spec compliance checks. These scripts were drafted by ChatGPT and edited by hand.</p>
+
+    <!-- HUMAN IN THE LOOP -->
+    <span class="dimming-section-head">The Human in the Loop</span>
+
+    <p>Every episode of The Dimming contains one piece that was never automated and never will be: Cass's nostalgia beat. In the show's five-slot structure, Break 3 ("Nostalgia Bait") is where Cass turns tender or sardonic about a memory, usually from childhood, usually from a small town. These memories are autobiographical.</p>
+
+    <p>Growing up in a small community, I had this story in me trying to get out. While I am still glad I "made it out," I still dream of returning to small-town life and the kind of community I did not appreciate as a child and teenager. These memories are mine, but the story is for all those other millennials who had a small-town life but big-city dreams and now wish they had appreciated what they had before running away.</p>
+
+    <p>The memory injection was the piece that made The Dimming feel like something other than AI-generated content. Cass's goat-farm childhood, her dad's records, the diner covered in ceramic owls, the rattlesnake roundup, the mom's liquor store: these came from a real life, given to a fictional character, and that specificity is what probabilistic models cannot replicate.</p>
+
+    <!-- LITERARY DNA -->
+    <span class="dimming-section-head">Literary DNA</span>
+
+    <p>Dimming exists in conversation with a tradition of fictional small towns. The literary allusions are deliberate, surfacing as Cass's reference points rather than as winks to the audience: Macondo from <em>One Hundred Years of Solitude</em>, Bradbury's Green Town, Wilder's Grover's Corners, Lewis's Narnia, Clarke's Piranesi, Gaiman's Village of Wall. Each comparison illuminates a different facet of Dimming. Macondo's forgetting, Green Town's seasons, Grover's Corners' dailiness, Narnia's threshold, Piranesi's journal-keeping, Wall's boundary.</p>
+
+    <p>The show's invented geography runs a parallel thread. Dimming's grocery brands come from literary source-towns: Langolier, Kentucky (Stephen King); Mount Absalom, Ohio; Innsmouth (Lovecraft); Bas-Lag (China Mi&eacute;ville); Orsinia (Ursula K. Le Guin). The supply chain is a map of influence disguised as shelf inventory.</p>
+
+    <!-- THE IMAGES -->
+    <span class="dimming-section-head">The Images</span>
+
+    <p>Every episode thumbnail was generated in Midjourney with a single reusable style block designed to fight the model's instinct toward cleanliness: a grainy amateur snapshot from an expired roll of Kodak Gold 35mm, shot on a cheap Yashica point-and-shoot. Heavy film grain, chemical print imperfections, soft focus, slight lens haze. The visual references were Todd Hido, William Eggleston, and Stephen Shore: quiet documentary snapshots with mundane melancholy.</p>
+
+    <p>Midjourney has a cleanliness floor that no prompt fully breaks. Accepting 80% from the model and finishing with a Photopea grain overlay (noise at 12&ndash;18, Gaussian blur at 0.5, pulled highlights and lifted blacks) was the reliable path. The palette held across all 45 images: ember amber, dusk indigo, ash grey, warm lamp gold. Warmth against dark, never dark alone.</p>
+
+    <p>One policy locked early and held: thumbnails are mood-only. No text, no "108.1" overlay, no station branding baked into the image. Branding lives in the video title and description. The image just has to feel like Dimming.</p>
+
+    <hr class="rule">
+
+    <p style="text-align:center; margin: 2rem 0;">
+      <a href="https://www.bluebrazelton.com/dimming/dimming.html" class="button">&larr; Back to The Dimming</a>
+    </p>
+
+  </div><!-- .shell -->
+</main>
+
+<!-- Site footer -->
+<footer class="site-footer" role="contentinfo">
+  <div class="shell">
+    <div class="site-footer__inner">
+      <div>
+        <strong>Blue Brazelton</strong>
+        <span> &middot; Northern Arizona University</span>
+      </div>
+      <div>
+        <a href="https://www.bluebrazelton.com/contact.html">Contact</a>
+        <span> &middot; </span>
+        <a href="https://www.bluebrazelton.com/cv.html">CV</a>
+        <span> &middot; Last updated August 2026</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.nav-toggle').addEventListener('click', function () {
+    document.querySelector('.nav').classList.toggle('is-open');
+  });
+</script>
+
+</body>
+</html>
