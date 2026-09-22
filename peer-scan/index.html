@@ -211,6 +211,62 @@
   .spotlight .st-text { font-size: 0.74rem; line-height: 1.3; }
   .mock-tag { font-size: 0.76rem; color: var(--muted); font-style: italic; margin: 10px 2px 0; }
 
+  /* TL;DR callout */
+  .tldr { background: var(--home-bg); border-left: 4px solid var(--accent); border-radius: 10px; padding: 18px 22px; margin: 22px 0 4px; }
+  .tldr-quote { font-size: 1.15rem; font-weight: 700; color: var(--accent); margin: 0 0 10px; line-height: 1.35; }
+  .tldr p.body { margin: 0; font-size: 0.96rem; }
+
+  /* Arizona footprint map */
+  .az-figure { display: flex; gap: 22px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin: 12px 0 4px; box-shadow: 0 1px 3px var(--shadow); }
+  @media (max-width: 560px) { .az-figure { flex-direction: column; text-align: center; } }
+  .az-map { width: 240px; flex: none; height: auto; }
+  .az-outline { fill: var(--home-bg); stroke: var(--accent); stroke-width: 2; }
+  .az-dot { fill: var(--accent); opacity: 0.85; }
+  .az-dot.faded { fill: var(--muted); opacity: 0.3; }
+  .az-big { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+  .az-cap { font-size: 0.92rem; color: var(--text); margin-top: 6px; }
+
+  /* Maturity ladder */
+  .ladder { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 12px 0 4px; }
+  @media (max-width: 640px) { .ladder { grid-template-columns: 1fr 1fr; } }
+  .rung { border: 1px solid var(--border); border-radius: 9px; overflow: hidden; background: var(--surface); }
+  .rung .rungbar { height: 5px; }
+  .rung .rungbar.lv0 { background: var(--h0-bg); }
+  .rung .rungbar.lv1 { background: var(--h1-bg); }
+  .rung .rungbar.lv2 { background: var(--h2-bg); }
+  .rung .rungbar.lv3 { background: var(--h3-bg); }
+  .rung .rung-in { padding: 9px 11px; }
+  .rung .rung-lvl { font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700; }
+  .rung .rung-name { font-weight: 700; font-size: 0.88rem; margin: 2px 0 8px; color: var(--accent); }
+  .rung ul { list-style: none; padding: 0; margin: 0; font-size: 0.8rem; }
+  .rung li { padding: 3px 0; border-top: 1px solid var(--border); }
+  .rung li:first-child { border-top: none; }
+  .rung li.nau { font-weight: 700; color: var(--accent); }
+
+  /* Format exhibits */
+  .exhibits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0 4px; }
+  @media (max-width: 640px) { .exhibits { grid-template-columns: 1fr; } }
+  .exhibit { border: 1px solid var(--border); border-radius: 9px; background: var(--surface); overflow: hidden; }
+  .exhibit .ex-in { padding: 12px; }
+  .exhibit .ex-cap { font-size: 0.72rem; color: var(--muted); padding: 7px 12px; border-top: 1px solid var(--border); background: var(--row-alt); }
+  .ex-tiles { display: flex; gap: 6px; }
+  .ex-tile { flex: 1; background: var(--home-bg); border-radius: 6px; padding: 8px 4px; text-align: center; }
+  .ex-tile .b { font-size: 1.15rem; font-weight: 800; color: var(--accent); }
+  .ex-tile .c { font-size: 0.56rem; color: var(--muted); margin-top: 2px; }
+  .ex-badge { display: inline-block; font-size: 0.66rem; font-weight: 700; color: #fff; background: var(--accent); border-radius: 20px; padding: 2px 9px; margin-bottom: 6px; }
+  .ex-line { font-size: 0.8rem; }
+  .ex-sub { font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+  /* Named-leaders gallery */
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0 4px; }
+  @media (max-width: 640px) { .gallery { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 420px) { .gallery { grid-template-columns: 1fr; } }
+  .person { border: 1px solid var(--border); border-radius: 9px; padding: 10px 12px; background: var(--surface); }
+  .person .pn { font-weight: 700; font-size: 0.86rem; }
+  .person .pn a { color: var(--text); }
+  .person .pr { font-size: 0.78rem; color: var(--text); margin-top: 1px; }
+  .person .pi { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+
   footer.page {
     margin-top: 48px;
     padding-top: 18px;
@@ -241,6 +297,11 @@
     <span>Static snapshot</span>
   </div>
 </header>
+
+<aside class="tldr">
+  <p class="tldr-quote">"Only Western Michigan publishes real department-level placement data."</p>
+  <p class="body">Across 11 peer programs, almost none publish placement data for the ed-leadership program itself. NAU already holds the strongest public claim in the set — 65% of Arizona's sitting superintendents — but with no method behind it and stranded on a College page. The gap is not evidence; it is a repeatable way to collect outcomes, a department page that shows them, and a steady cadence of stories. A modest first-destination survey would put NAU ahead of nearly every peer.</p>
+</aside>
 
 <nav class="toc" aria-label="On this page">
   <h2>On this page</h2>
@@ -296,6 +357,31 @@
   <h2 id="nau-baseline"><span class="num">3</span>The NAU baseline</h2>
   <p class="lead">NAU's public story rests on one memorable placement stat and a few testimonials, while its data-collection methods are not visible publicly and its outcomes storytelling is thin and split across pages.</p>
   <p>The standout asset is a placement claim on the <a href="https://nau.edu/college-education/department-educational-leadership/" target="_blank" rel="noopener">College of Education program page</a>: "65% of seated Arizona superintendents are NAU graduates," with roughly 300 new leaders graduating annually. Alumni testimonials appear but are sparse — for example, Dr. Megan Garvy of Mesa Community College, on how the program "refined my academic writing" and enabled "large-scale transformational projects."</p>
+  <div class="az-figure">
+    <svg class="az-map" viewBox="0 0 240 210" role="img" aria-label="Stylized map of Arizona showing NAU-trained leaders across the state">
+      <polygon class="az-outline" points="40,20 214,20 214,192 112,192 40,110"/>
+      <circle class="az-dot" cx="90" cy="50" r="6"/>
+      <circle class="az-dot" cx="135" cy="45" r="6"/>
+      <circle class="az-dot" cx="178" cy="55" r="6"/>
+      <circle class="az-dot" cx="118" cy="80" r="6"/>
+      <circle class="az-dot" cx="160" cy="82" r="6"/>
+      <circle class="az-dot" cx="196" cy="98" r="6"/>
+      <circle class="az-dot" cx="82" cy="90" r="6"/>
+      <circle class="az-dot" cx="150" cy="120" r="6"/>
+      <circle class="az-dot" cx="115" cy="130" r="6"/>
+      <circle class="az-dot" cx="185" cy="138" r="6"/>
+      <circle class="az-dot" cx="142" cy="162" r="6"/>
+      <circle class="az-dot" cx="176" cy="172" r="6"/>
+      <circle class="az-dot faded" cx="120" cy="55" r="6"/>
+      <circle class="az-dot faded" cx="200" cy="62" r="6"/>
+      <circle class="az-dot faded" cx="100" cy="115" r="6"/>
+    </svg>
+    <div>
+      <div class="az-big">65%</div>
+      <div class="az-cap">of Arizona's sitting superintendents are NAU graduates — a statewide footprint few programs can claim. A map like this turns the stat into a picture of reach.</div>
+    </div>
+  </div>
+  <p class="mock-tag">Illustrative — dot placement is schematic, not actual district locations.</p>
   <p>By contrast, the department's own <a href="https://in.nau.edu/department-educational-leadership/" target="_blank" rel="noopener">site</a> is program-descriptive: no placement statistics, no alumni or current-student spotlights, and faculty reachable only through a directory link. No public evidence shows how the department collects graduate outcome data — no alumni survey, first-destination tracking, or outcomes dashboard is surfaced (internal practice may differ).</p>
   <p>The structure peers should be matched against: an EdD in K-12 Administration and an EdD in Community College / Higher Education Administration, four master's tracks, and distinctive American Indian School Leadership and International Educational Leadership emphases.</p>
   <p>Net: the 65% superintendent stat is a strong, quotable bar — but it stands almost alone, under-supported by systematic data and under-told across the department's own channels.</p>
@@ -531,6 +617,15 @@
 <section>
   <h2 id="placement"><span class="num">5</span>Alumni job success &amp; placement <span style="font-weight:400;color:var(--muted);font-size:1rem;">(priority)</span></h2>
   <p class="lead">Public placement data at the true program level is rare — only Western Michigan reports it cleanly for its ed-leadership department; everywhere else the useful numbers sit at the college or accreditation level, or do not exist. A credible department-scale placement snapshot is therefore the clearest whitespace NAU could own. The reporting models we found, strongest to weakest:</p>
+  <p class="section-eyebrow">The maturity ladder</p>
+  <p style="font-size:0.9rem;margin:0 0 8px;">From no public data (left) to methodical department-level reporting (right). NAU sits on the second rung — a strong claim, no method — with room to climb.</p>
+  <div class="ladder">
+    <div class="rung"><div class="rungbar lv0"></div><div class="rung-in"><div class="rung-lvl">Rung 0</div><div class="rung-name">None public</div><ul><li>U of A</li><li>UNLV</li><li>Sam Houston</li><li>Michigan State</li></ul></div></div>
+    <div class="rung"><div class="rungbar lv1"></div><div class="rung-in"><div class="rung-lvl">Rung 1</div><div class="rung-name">Claim / indirect</div><ul><li class="nau">NAU — 65% claim</li><li>GCU — completion</li><li>Ball State — MA only</li></ul></div></div>
+    <div class="rung"><div class="rungbar lv2"></div><div class="rung-in"><div class="rung-lvl">Rung 2</div><div class="rung-name">College / accreditation</div><ul><li>ASU</li><li>East Carolina</li><li>Old Dominion</li><li>Vanderbilt</li></ul></div></div>
+    <div class="rung"><div class="rungbar lv3"></div><div class="rung-in"><div class="rung-lvl">Rung 3</div><div class="rung-name">Dept-level, methodical</div><ul><li>Western Michigan</li></ul></div></div>
+  </div>
+  <p class="mock-tag">NAU's target: rung 3 — a first-destination survey reported at the department level.</p>
   <p><strong>Department-level outcomes with a real method (the model to beat).</strong> Western Michigan's ELRT department publishes a 2024-25 Career Outcomes Report: <a href="https://wmich.edu/leadership" target="_blank" rel="noopener">94% of graduates working full time have a job related to their degree</a>, and its Higher Education Leadership PhD claims <a href="https://wmich.edu/leadership/academics/ed-leadership/doctor/higher-ed" target="_blank" rel="noopener">100% employed or continuing education within three months</a>. It is backed by a transparent <a href="https://wmich.edu/career/outcomes/aboutpgar" target="_blank" rel="noopener">NACE first-destination method</a> — a survey sent about three weeks before graduation, four reminders, then LinkedIn supplementation, reaching a 78% knowledge rate.</p>
   <p><strong>NACE-grade career reporting at the college level.</strong> Vanderbilt Peabody reports <a href="https://peabody.vanderbilt.edu/student-life/career-services/" target="_blank" rel="noopener">95% of 2024-25 graduates placed by November 15</a> via a NACE-compliant annual report with a 98% knowledge rate and named employers, and its LPO department keeps a simple <a href="https://peabody.vanderbilt.edu/departments/lpo/recent-phd-placements.php" target="_blank" rel="noopener">Recent PhD Placements list</a> of name, title, and employer — though it has gone stale since 2022.</p>
   <p><strong>Accreditation-driven outcomes (CAEP).</strong> East Carolina and Old Dominion surface their most defensible numbers through educator-prep accreditation: ECU's <a href="https://education.ecu.edu/oaa/caepar/" target="_blank" rel="noopener">CAEP Annual Report</a> includes an employment-outcomes measure, and ODU's <a href="https://www.odu.edu/education/about/accreditation/caep" target="_blank" rel="noopener">CAEP page</a> breaks out Educational Leadership with an employer-satisfaction mean of 4.22/5 and a 100% licensure-exam pass rate. Both are college/EPP-level, not EdD-specific.</p>
@@ -547,6 +642,47 @@
   <p><strong>Current-student</strong> storytelling is thinner everywhere, but two models stand out. Old Dominion's <a href="https://www.odu.edu/educational-foundations-leadership/student-profiles" target="_blank" rel="noopener">student-profile pages</a> give about a dozen photo-plus-interview profiles, each naming the student's employer, role, faculty mentor, and research focus — which doubles as informal placement proof. Vanderbilt's <a href="https://news.vanderbilt.edu/2025/05/13/where-leaders-learn-inside-vanderbilts-online-leadership-and-learning-in-organizations-doctoral-program/" target="_blank" rel="noopener">LLO feature</a> names current doctoral students alongside their day jobs. Most others — ASU, U of A, Ball State, Sam Houston, Michigan State — have little or none.</p>
   <p><strong>Faculty</strong> storytelling takes three recurring shapes. Ball State's <a href="https://www.bsu.edu/academics/collegesanddepartments/educational-leadership/about-us/faculty-and-staff-directory" target="_blank" rel="noopener">faculty directory</a> pairs headshots with CVs and individual bio pages; ASU publishes monthly <a href="https://education.asu.edu/about/news/august-2026-faculty-scholarship-and-recognitions" target="_blank" rel="noopener">faculty scholarship and recognition roundups</a>; UNLV runs a research-and-experts <a href="https://www.unlv.edu/news/unit/academic/15621" target="_blank" rel="noopener">news feed</a> (a $1M NSF grant, faculty in national media). GCU is the weak outlier, presenting faculty collectively with no named profiles.</p>
   <p><strong>The recurring failure</strong> is good material stranded in the wrong place: Sam Houston's Texas Superintendent of the Year and Michigan State's rich alumni notes live in university or college channels, and U of A's dedicated spotlight page returns a 404 — so the story never reaches the program page where a prospective student actually looks.</p>
+  <p class="section-eyebrow">Formats worth copying</p>
+  <div class="exhibits">
+    <div class="exhibit">
+      <div class="ex-in">
+        <div class="ex-tiles">
+          <div class="ex-tile"><div class="b">94%</div><div class="c">employed in field</div></div>
+          <div class="ex-tile"><div class="b">100%</div><div class="c">within 3 months</div></div>
+        </div>
+      </div>
+      <div class="ex-cap">Stat tiles — Western Michigan style</div>
+    </div>
+    <div class="exhibit">
+      <div class="ex-in">
+        <span class="ex-badge">Alumni Spotlight #7</span>
+        <div class="ex-line"><strong>Dr. [Name] '24</strong></div>
+        <div class="ex-sub">Assistant Principal, [district] — "the cohort was the best thing I never knew I needed."</div>
+      </div>
+      <div class="ex-cap">Numbered spotlight series — UNLV style</div>
+    </div>
+    <div class="exhibit">
+      <div class="ex-in">
+        <div class="ex-line"><strong>[Student name]</strong></div>
+        <div class="ex-sub">EdD, Higher Ed cohort<br>Role: Director of Advising, [college]<br>Mentor: Dr. [faculty]<br>Research: equity in transfer</div>
+      </div>
+      <div class="ex-cap">Student profile card — Old Dominion style</div>
+    </div>
+  </div>
+  <p class="section-eyebrow">Exhibit: where peer graduates lead</p>
+  <p style="font-size:0.9rem;margin:0 0 8px;">Every person below is a real graduate of a peer program, surfaced in this scan — a live example of the "where our leaders serve" gallery NAU could build with its own alumni.</p>
+  <div class="gallery">
+    <div class="person"><div class="pn"><a href="https://education.ecu.edu/doctor-of-education/" target="_blank" rel="noopener">Matthew Cheeseman</a></div><div class="pr">Superintendent, Beaufort County Schools</div><div class="pi">East Carolina · EdD '22</div></div>
+    <div class="person"><div class="pn"><a href="https://education.arizona.edu/educational-leadership-policy" target="_blank" rel="noopener">Flori Centeno Huitt</a></div><div class="pr">Assistant Superintendent, Tucson Unified</div><div class="pi">U of A · EdD '23</div></div>
+    <div class="person"><div class="pn"><a href="https://www.shsu.edu/dept/office-of-alumni-relations/awards/distinguished/2019/Goffney/LaTonya/" target="_blank" rel="noopener">LaTonya Goffney</a></div><div class="pr">Superintendent, Aldine ISD · 2018 TX Superintendent of the Year</div><div class="pi">Sam Houston · EdD</div></div>
+    <div class="person"><div class="pn"><a href="https://wmich.edu/leadership/hesa/testimonials" target="_blank" rel="noopener">DeAnna Burt-Nanna</a></div><div class="pr">President, Monroe Community College</div><div class="pi">Western Michigan · PhD '09</div></div>
+    <div class="person"><div class="pn"><a href="https://peabody.vanderbilt.edu/academics/departments/leadership-policy-organizations/" target="_blank" rel="noopener">Ayindé Rudolph</a></div><div class="pr">Superintendent, Mountain View Whisman SD</div><div class="pi">Vanderbilt · EdD</div></div>
+    <div class="person"><div class="pn"><a href="https://news.vanderbilt.edu/2025/05/13/where-leaders-learn-inside-vanderbilts-online-leadership-and-learning-in-organizations-doctoral-program/" target="_blank" rel="noopener">Mautra Jones</a></div><div class="pr">President, Oklahoma City Community College</div><div class="pi">Vanderbilt · EdD '21</div></div>
+    <div class="person"><div class="pn"><a href="https://news.asu.edu/20181130-sun-devil-life-mary-lou-fulton-teachers-college-doctoral-grad-has-vision-power-education" target="_blank" rel="noopener">Greg Pereira</a></div><div class="pr">VP Student Affairs, Rio Salado College</div><div class="pi">ASU · EdD '18</div></div>
+    <div class="person"><div class="pn"><a href="https://education.msu.edu/new-educator/2026/01/alumni-notes-jan-2026" target="_blank" rel="noopener">Kevin Polston</a></div><div class="pr">Superintendent, Kentwood Public Schools</div><div class="pi">Michigan State</div></div>
+    <div class="person"><div class="pn"><a href="https://wmich.edu/leadership/hesa/testimonials" target="_blank" rel="noopener">Maria Anderson</a></div><div class="pr">Founder &amp; CEO, Socrait</div><div class="pi">Western Michigan · PhD '11</div></div>
+  </div>
+  <p class="mock-tag">Names and roles are as reported on each program's public pages (linked); shown to illustrate the format, not NAU's own alumni.</p>
 </section>
 
 <section>
@@ -577,486 +713,43 @@
   </ol>
   <p><strong>Benchmark where we stand.</strong> NAU's headline claim beats nearly every peer's public data; the gap is method, department-page presence, and cadence — not evidence. Before investing, consider re-running this scan against the 12 reserve ABOR peers to confirm the whitespace is real.</p>
   <p><strong>If we do one thing:</strong> run a first-destination survey for the next graduating cohort and post the result — next to the 65% stat and a short placements list — on the department's own page. That alone would move NAU past most of this peer set.</p>
-</section>
-
-<section>
-  <h2 id="reserve"><span class="num">9</span>Reserve pool &amp; how to extend</h2>
-  <p>The full 18 ABOR-assigned peers are the defensible reserve for widening this scan; the six in the ABOR tier were drawn from them.</p>
-  <p><strong>Scanned:</strong> Ball State, East Carolina, Sam Houston State, Old Dominion, UNLV, Western Michigan.</p>
-  <p><strong>Reserve (12 not yet scanned):</strong> Central Michigan, Florida Atlantic, Georgia Southern, Illinois State, Middle Tennessee State, Mississippi State, UT Rio Grande Valley, Towson, Akron, Louisiana–Lafayette, North Georgia, Virginia Commonwealth. Source: NAU Institutional Research <a href="https://in.nau.edu/institutional-research/peer-data/" target="_blank" rel="noopener">peer list</a>.</p>
-  <p>To extend defensibly, in order:</p>
-  <ol>
-    <li>Prioritize reserve peers whose doctoral programs mirror NAU's dual K-12 + higher-ed structure.</li>
-    <li>Confirm public outcomes or storytelling pages exist before committing a unit — skip programs with nothing public to compare.</li>
-    <li>Add an aspirational exemplar only to study a specific practice worth copying, not for coverage.</li>
-    <li>Re-run the same rubric — placement data, storytelling by audience, collection method — so new rows stay comparable.</li>
-  </ol>
-</section>
-
-<footer class="page">
-  <p>Educational Leadership Peer Scan · static snapshot as of September 22, 2026. All figures link to their primary institutional sources inline. Scope: educational leadership department/program level. Prepared for the NAU Department of Educational Leadership.</p>
-</footer>
-
-</div>
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Educational Leadership Peer Scan</title>
-<meta name="description" content="How 11 educational-leadership programs collect graduate data and tell their story — a peer scan for NAU's Department of Educational Leadership.">
-<style>
-  :root {
-    --bg: #f7f8fa;
-    --surface: #ffffff;
-    --text: #1b2430;
-    --muted: #5c6673;
-    --accent: #123a5e;
-    --link: #175a9c;
-    --border: #e2e6eb;
-    --row-alt: #f4f6f9;
-    --home-bg: #eaf1f9;
-    --head-bg: #123a5e;
-    --head-text: #ffffff;
-    --shadow: rgba(20,30,45,0.08);
-    --h3-bg: #1c5cab; --h3-fg: #ffffff;
-    --h2-bg: #6da7ec; --h2-fg: #0e1a26;
-    --h1-bg: #d7e8fb; --h1-fg: #1b2430;
-    --h0-bg: #eceae7; --h0-fg: #5c5a54;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0f141a;
-      --surface: #161c24;
-      --text: #e7ebf0;
-      --muted: #9aa5b2;
-      --accent: #7fb2e6;
-      --link: #86bdf0;
-      --border: #29313c;
-      --row-alt: #1b232d;
-      --home-bg: #17273a;
-      --head-bg: #21344c;
-      --head-text: #eaf1f9;
-      --shadow: rgba(0,0,0,0.4);
-      --h3-bg: #4f9bf0; --h3-fg: #04121f;
-      --h2-bg: #245e9e; --h2-fg: #eaf1f9;
-      --h1-bg: #183353; --h1-fg: #b7d3f6;
-      --h0-bg: #24282e; --h0-fg: #9aa4af;
-    }
-  }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    font-size: 17px;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px 80px; }
-  header.page {
-    border-bottom: 3px solid var(--accent);
-    padding: 44px 0 20px;
-    margin-bottom: 8px;
-  }
-  h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-    margin: 0 0 6px;
-    letter-spacing: -0.01em;
-  }
-  .tagline { color: var(--muted); font-size: 1.05rem; margin: 0 0 16px; }
-  .meta {
-    font-size: 0.85rem;
-    color: var(--muted);
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 16px;
-  }
-  .meta span { white-space: nowrap; }
-  h2 {
-    font-size: 1.35rem;
-    margin: 44px 0 12px;
-    padding-top: 8px;
-    scroll-margin-top: 16px;
-    color: var(--text);
-  }
-  h2 .num {
-    color: var(--accent);
-    font-weight: 700;
-    margin-right: 8px;
-  }
-  p { margin: 0 0 14px; }
-  a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
-  a:hover { border-bottom-color: currentColor; }
-  strong { font-weight: 700; }
-  ol { margin: 0 0 14px; padding-left: 22px; }
-  ol li { margin-bottom: 8px; }
-  .lead { font-size: 1.06rem; }
-
-  /* Table of contents */
-  nav.toc {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 16px 20px;
-    margin: 24px 0 8px;
-    box-shadow: 0 1px 3px var(--shadow);
-  }
-  nav.toc h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 10px; padding: 0; }
-  nav.toc ol { columns: 2; column-gap: 28px; margin: 0; padding-left: 20px; font-size: 0.95rem; }
-  @media (max-width: 560px) { nav.toc ol { columns: 1; } }
-
-  /* Generic content tables (tier table) */
-  table.tier {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 6px 0 18px;
-    font-size: 0.94rem;
-  }
-  table.tier th, table.tier td {
-    text-align: left;
-    vertical-align: top;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--border);
-  }
-  table.tier thead th { background: var(--head-bg); color: var(--head-text); }
-  table.tier tbody td:first-child { font-weight: 600; white-space: nowrap; }
-
-  /* Comparison matrix with frozen first column */
-  .matrix-note { font-size: 0.86rem; color: var(--muted); margin: 4px 0 8px; }
-  .matrix-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    box-shadow: 0 1px 3px var(--shadow);
-  }
-  table.matrix {
-    border-collapse: separate;
-    border-spacing: 0;
-    min-width: 980px;
-    width: 100%;
-    font-size: 0.9rem;
-  }
-  table.matrix th, table.matrix td {
-    text-align: left;
-    vertical-align: top;
-    padding: 11px 13px;
-    border-bottom: 1px solid var(--border);
-  }
-  table.matrix thead th {
-    position: sticky;
-    top: 0;
-    background: var(--head-bg);
-    color: var(--head-text);
-    z-index: 2;
-    font-weight: 600;
-  }
-  /* Frozen first column */
-  table.matrix th:first-child,
-  table.matrix td:first-child {
-    position: sticky;
-    left: 0;
-    min-width: 190px;
-    max-width: 190px;
-    box-shadow: 2px 0 5px -2px var(--shadow);
-  }
-  table.matrix thead th:first-child { z-index: 3; }
-  table.matrix tbody td { background: var(--surface); }
-  table.matrix tbody tr:nth-child(even) td { background: var(--row-alt); }
-  table.matrix tbody td:first-child { font-weight: 600; }
-  table.matrix tbody tr.home td { background: var(--home-bg); }
-  .tier-tag { display: block; font-weight: 400; font-size: 0.78rem; color: var(--muted); margin-top: 2px; }
-
-  /* Heat-map scorecard */
-  .section-eyebrow { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); font-weight: 700; margin: 22px 0 6px; }
-  .scorecard-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 1px 3px var(--shadow); }
-  table.scorecard { border-collapse: separate; border-spacing: 0; min-width: 740px; width: 100%; font-size: 0.82rem; }
-  table.scorecard th, table.scorecard td { padding: 6px 7px; text-align: center; border-bottom: 1px solid var(--border); }
-  table.scorecard thead th { position: sticky; top: 0; background: var(--head-bg); color: var(--head-text); z-index: 2; font-weight: 600; font-size: 0.76rem; }
-  table.scorecard th:first-child, table.scorecard td:first-child { position: sticky; left: 0; text-align: left; min-width: 168px; max-width: 168px; background: var(--surface); font-weight: 600; box-shadow: 2px 0 5px -2px var(--shadow); z-index: 1; }
-  table.scorecard thead th:first-child { z-index: 3; background: var(--head-bg); }
-  table.scorecard tbody tr.home td:first-child { background: var(--home-bg); }
-  .cell { display: block; border-radius: 5px; padding: 6px 4px; font-weight: 600; font-size: 0.72rem; line-height: 1.15; }
-  .cell.lv3 { background: var(--h3-bg); color: var(--h3-fg); }
-  .cell.lv2 { background: var(--h2-bg); color: var(--h2-fg); }
-  .cell.lv1 { background: var(--h1-bg); color: var(--h1-fg); }
-  .cell.lv0 { background: var(--h0-bg); color: var(--h0-fg); }
-  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.8rem; color: var(--muted); margin: 10px 2px 0; align-items: center; }
-  .legend .sw { display: inline-block; width: 13px; height: 13px; border-radius: 3px; vertical-align: -2px; margin-right: 5px; border: 1px solid var(--border); }
-
-  /* Before/after mockup */
-  .mockups { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 10px 0 4px; }
-  @media (max-width: 640px) { .mockups { grid-template-columns: 1fr; } }
-  .mock { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 3px var(--shadow); }
-  .mock-bar { font-size: 0.72rem; padding: 7px 12px; background: var(--row-alt); color: var(--muted); border-bottom: 1px solid var(--border); font-weight: 700; letter-spacing: 0.02em; }
-  .mock-body { padding: 15px; }
-  .mock h4 { margin: 0 0 6px; font-size: 1rem; }
-  .mock p.small { font-size: 0.8rem; color: var(--muted); margin: 0 0 10px; }
-  .link-stub { display: block; height: 9px; background: var(--border); border-radius: 4px; margin: 8px 0; }
-  .link-stub.short { width: 55%; }
-  .link-stub.mid { width: 72%; }
-  .tiles { display: flex; gap: 7px; margin: 2px 0 12px; }
-  .tile { flex: 1; background: var(--home-bg); border: 1px solid var(--border); border-radius: 8px; padding: 9px 6px; text-align: center; }
-  .tile .big { font-size: 1.3rem; font-weight: 800; color: var(--accent); line-height: 1.05; }
-  .tile .cap { font-size: 0.6rem; color: var(--muted); margin-top: 3px; line-height: 1.2; }
-  .mini-h { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); font-weight: 700; margin: 10px 0 4px; }
-  ul.placements { font-size: 0.78rem; margin: 0 0 12px; padding: 0; list-style: none; }
-  ul.placements li { padding: 4px 0; border-bottom: 1px solid var(--border); }
-  .spotlight { display: flex; gap: 10px; align-items: center; background: var(--row-alt); border-radius: 8px; padding: 9px 10px; }
-  .spotlight .avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--accent); flex: none; opacity: 0.85; }
-  .spotlight .st-text { font-size: 0.74rem; line-height: 1.3; }
-  .mock-tag { font-size: 0.76rem; color: var(--muted); font-style: italic; margin: 10px 2px 0; }
-
-  footer.page {
-    margin-top: 48px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-    font-size: 0.85rem;
-    color: var(--muted);
-  }
-  @media print {
-    body { background: #fff; color: #000; font-size: 11pt; }
-    nav.toc { display: none; }
-    .matrix-wrap { overflow: visible; border: none; box-shadow: none; }
-    table.matrix { min-width: 0; font-size: 8.5pt; }
-    table.matrix th:first-child, table.matrix td:first-child { position: static; box-shadow: none; }
-    a { color: #000; }
-  }
-</style>
-</head>
-<body>
-<div class="wrap">
-
-<header class="page">
-  <h1>Educational Leadership Peer Scan</h1>
-  <p class="tagline">How 11 peer programs collect graduate data and tell their story — with a focus on alumni job placement.</p>
-  <div class="meta">
-    <span>As of September 22, 2026</span>
-    <span>Prepared by Blue Brazelton</span>
-    <span>NAU Department of Educational Leadership</span>
-    <span>Static snapshot</span>
+  <p class="section-eyebrow">What that could look like</p>
+  <div class="mockups">
+    <div class="mock">
+      <div class="mock-bar">NAU Ed Leadership — today</div>
+      <div class="mock-body">
+        <h4>Department of Educational Leadership</h4>
+        <p class="small">Preparing educational leaders who think like scholars and transform learning environments.</p>
+        <span class="link-stub mid"></span>
+        <span class="link-stub short"></span>
+        <span class="link-stub"></span>
+        <p class="small" style="margin-top:12px;">Programs · Admissions · Faculty directory</p>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="mock-bar">NAU Ed Leadership — could be</div>
+      <div class="mock-body">
+        <h4>Department of Educational Leadership</h4>
+        <div class="tiles">
+          <div class="tile"><div class="big">65%</div><div class="cap">of AZ's sitting superintendents are NAU grads</div></div>
+          <div class="tile"><div class="big">[XX]%</div><div class="cap">in an ed-leadership role within 6 months</div></div>
+          <div class="tile"><div class="big">~300</div><div class="cap">new leaders a year</div></div>
+        </div>
+        <div class="mini-h">Recent graduate placements</div>
+        <ul class="placements">
+          <li>Dr. [Name] — Superintendent, [AZ district]</li>
+          <li>Dr. [Name] — Dean, [community college]</li>
+          <li>Dr. [Name] — Principal, [school]</li>
+        </ul>
+        <div class="mini-h">Alumni spotlight</div>
+        <div class="spotlight">
+          <div class="avatar"></div>
+          <div class="st-text">Dr. Megan Garvy, Mesa Community College — the program "refined my academic writing" and enabled "large-scale transformational projects."</div>
+        </div>
+      </div>
+    </div>
   </div>
-</header>
-
-<nav class="toc" aria-label="On this page">
-  <h2>On this page</h2>
-  <ol>
-    <li><a href="#how-to-read">How to read this</a></li>
-    <li><a href="#peer-set">Peer set &amp; method</a></li>
-    <li><a href="#nau-baseline">The NAU baseline</a></li>
-    <li><a href="#matrix">Comparison matrix</a></li>
-    <li><a href="#placement">Alumni job success &amp; placement</a></li>
-    <li><a href="#storytelling">Storytelling patterns</a></li>
-    <li><a href="#data-collection">Data-collection methods</a></li>
-    <li><a href="#takeaways">Takeaways &amp; recommended moves</a></li>
-    <li><a href="#reserve">Reserve pool &amp; how to extend</a></li>
-  </ol>
-</nav>
-
-<section>
-  <h2 id="how-to-read"><span class="num">1</span>How to read this</h2>
-  <p class="lead">This scan maps how 11 educational-leadership programs collect graduate data and tell their story in public — to sharpen NAU's storytelling, design our own alumni-outcomes data collection, and benchmark where we stand.</p>
-  <p>Scope is the educational leadership department or program at each institution, not the whole college, read from public program pages as of September 2026. Alumni job success and placement is the priority lens throughout.</p>
-  <p>Sections run in order: the peer set and method, the NAU baseline we measure against, an at-a-glance comparison matrix, then depth on placement data, storytelling patterns, and data-collection methods — closing with recommended moves for NAU and a reserve pool for extending the set.</p>
-</section>
-
-<section>
-  <h2 id="peer-set"><span class="num">2</span>Peer set &amp; method</h2>
-  <p>Eleven programs were scanned across three tiers, so the set is defensible rather than ad hoc: in-state market competitors, NAU's officially assigned institutional peers, and two aspirational exemplars.</p>
-  <table class="tier">
-    <thead>
-      <tr><th scope="col">Tier</th><th scope="col">Programs scanned</th><th scope="col">Why this tier</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>In-state</td>
-        <td>ASU (Mary Lou Fulton College), U of A (Educational Leadership &amp; Policy), GCU (College of Doctoral Studies)</td>
-        <td>Recruitment competitors Arizona students also weigh. Structurally different from NAU — ASU and U of A are larger R1s, GCU is a private online model — which is why their storytelling contrasts sharply.</td>
-      </tr>
-      <tr>
-        <td>ABOR-assigned peers</td>
-        <td>Ball State, East Carolina, Sam Houston State, Old Dominion, UNLV, Western Michigan</td>
-        <td>Drawn from NAU's 18 official <a href="https://in.nau.edu/institutional-research/peer-data/" target="_blank" rel="noopener">ABOR comparators</a> — institutions genuinely like us. Picked to mirror NAU's dual K-12 + higher-ed doctoral structure and span regions.</td>
-      </tr>
-      <tr>
-        <td>Aspirational</td>
-        <td>Vanderbilt (Peabody), Michigan State</td>
-        <td>Chosen for demonstrated excellence in outcomes reporting and storytelling, not Carnegie match — the ceiling, not the mirror.</td>
-      </tr>
-    </tbody>
-  </table>
-  <p>NAU is now an <a href="https://in.nau.edu/news/r1-research-designation/" target="_blank" rel="noopener">R1 university</a> (2025 Carnegie), and its Institutional Research office publishes the ABOR-assigned peer list that anchors the middle tier. Each finding below is read from public program or department pages and links to its source; the full 18 ABOR peers sit in the reserve pool at the end for defensible expansion.</p>
-</section>
-
-<section>
-  <h2 id="nau-baseline"><span class="num">3</span>The NAU baseline</h2>
-  <p class="lead">NAU's public story rests on one memorable placement stat and a few testimonials, while its data-collection methods are not visible publicly and its outcomes storytelling is thin and split across pages.</p>
-  <p>The standout asset is a placement claim on the <a href="https://nau.edu/college-education/department-educational-leadership/" target="_blank" rel="noopener">College of Education program page</a>: "65% of seated Arizona superintendents are NAU graduates," with roughly 300 new leaders graduating annually. Alumni testimonials appear but are sparse — for example, Dr. Megan Garvy of Mesa Community College, on how the program "refined my academic writing" and enabled "large-scale transformational projects."</p>
-  <p>By contrast, the department's own <a href="https://in.nau.edu/department-educational-leadership/" target="_blank" rel="noopener">site</a> is program-descriptive: no placement statistics, no alumni or current-student spotlights, and faculty reachable only through a directory link. No public evidence shows how the department collects graduate outcome data — no alumni survey, first-destination tracking, or outcomes dashboard is surfaced (internal practice may differ).</p>
-  <p>The structure peers should be matched against: an EdD in K-12 Administration and an EdD in Community College / Higher Education Administration, four master's tracks, and distinctive American Indian School Leadership and International Educational Leadership emphases.</p>
-  <p>Net: the 65% superintendent stat is a strong, quotable bar — but it stands almost alone, under-supported by systematic data and under-told across the department's own channels.</p>
-</section>
-
-<section>
-  <h2 id="matrix"><span class="num">4</span>Comparison matrix</h2>
-  <p>Only Western Michigan publishes genuine department-level placement outcomes; most programs keep hard numbers at the college level or publish none, and storytelling is uneven across audiences. NAU is shown first as the baseline; sources for every figure are in the sections below.</p>
-  <p class="matrix-note">Scroll right for full detail — the program column stays fixed.</p>
-  <div class="matrix-wrap">
-    <table class="matrix" aria-label="Peer comparison matrix">
-      <thead>
-        <tr>
-          <th scope="col">Program</th>
-          <th scope="col">Placement data at program level</th>
-          <th scope="col">How they collect outcome data</th>
-          <th scope="col">Storytelling — alumni · students · faculty</th>
-          <th scope="col">Standout worth borrowing</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="home">
-          <td>NAU<span class="tier-tag">home</span></td>
-          <td>None; one College-page stat: 65% of seated AZ superintendents</td>
-          <td>None visible publicly</td>
-          <td>Thin · None · Thin (directory)</td>
-          <td>— (this is the gap)</td>
-        </tr>
-        <tr>
-          <td>ASU<span class="tier-tag">in-state</span></td>
-          <td>College-level only: 90% employed in field within 6 months</td>
-          <td>Alumni story-submission survey; CPED framework</td>
-          <td>Some · Thin · Strong</td>
-          <td>Monthly faculty-scholarship roundups; CPED "Program of the Year"</td>
-        </tr>
-        <tr>
-          <td>U of A<span class="tier-tag">in-state</span></td>
-          <td>None; only university ranking claims</td>
-          <td>Not published; CPED dissertation-in-practice</td>
-          <td>Some · Thin · Some</td>
-          <td>Dedicated alumni + student spotlight page (good concept; currently 404)</td>
-        </tr>
-        <tr>
-          <td>GCU<span class="tier-tag">in-state</span></td>
-          <td>None (explicit disclaimer); but public completion/cost table (1,226 EdD grads, 6.5-yr avg)</td>
-          <td>Aggregated completion tracking; video testimonials</td>
-          <td>Strong · Some · Thin</td>
-          <td>Public doctoral outcomes-transparency table; video testimonial engine</td>
-        </tr>
-        <tr>
-          <td>Ball State<span class="tier-tag">ABOR</span></td>
-          <td>MA Student Affairs 100% (not EdD); "most Indiana administrators"</td>
-          <td>University alumni survey (not dept-specific); CAEP</td>
-          <td>Thin · Thin · Strong</td>
-          <td>Faculty directory with CVs and bios; market-share messaging</td>
-        </tr>
-        <tr>
-          <td>East Carolina<span class="tier-tag">ABOR</span></td>
-          <td>CAEP employment-outcomes (college/EPP level); named superintendents</td>
-          <td>CAEP report; first-destination survey; SONIA; CPED</td>
-          <td>Strong · Strong · Some</td>
-          <td>LEED news blog — a rotating alumni/student/faculty content engine</td>
-        </tr>
-        <tr>
-          <td>Sam Houston<span class="tier-tag">ABOR</span></td>
-          <td>None; strongest alum (TX Superintendent of the Year) only in a university channel</td>
-          <td>None visible; external state TEA reviews</td>
-          <td>Thin · Thin · Thin</td>
-          <td>— (cautionary: strong alumni left uncaptured)</td>
-        </tr>
-        <tr>
-          <td>Old Dominion<span class="tier-tag">ABOR</span></td>
-          <td>CAEP ed-leadership employer satisfaction 4.22/5; 100% licensure pass (college level)</td>
-          <td>CAEP surveys; IR alumni surveys (login-gated)</td>
-          <td>Some · Strong · Some</td>
-          <td>Student-profile pages tying names to real job titles</td>
-        </tr>
-        <tr>
-          <td>UNLV<span class="tier-tag">ABOR</span></td>
-          <td>None at program level</td>
-          <td>None visible</td>
-          <td>Strong · Thin · Some</td>
-          <td>Cadenced, numbered "Alumni Spotlight" series</td>
-        </tr>
-        <tr>
-          <td>Western Michigan<span class="tier-tag">ABOR</span></td>
-          <td>Dept-level: 94% employed in field; Higher-Ed PhD 100% within 3 months; salary $60–70k</td>
-          <td>NACE first-destination survey + LinkedIn mining; 78% knowledge rate</td>
-          <td>Strong · Some · Some</td>
-          <td>Dept career-outcomes tiles + transparent NACE method (top model)</td>
-        </tr>
-        <tr>
-          <td>Vanderbilt Peabody<span class="tier-tag">aspirational</span></td>
-          <td>"Recent PhD Placements" list (dated); college-level 95% placed</td>
-          <td>NACE first-destination (98% knowledge rate); hand-kept PhD list</td>
-          <td>Strong · Strong · Some</td>
-          <td>NACE career report + simple "Recent PhD Placements" list</td>
-        </tr>
-        <tr>
-          <td>Michigan State<span class="tier-tag">aspirational</span></td>
-          <td>None at program level (rankings, qualitative claims)</td>
-          <td>Self-reported "Alumni Notes"; Qualtrics awards form</td>
-          <td>Strong (college) · Thin · Some</td>
-          <td>"Alumni Notes" magazine + reusable spotlight template</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <p class="matrix-note">Ratings read alumni · students · faculty (Strong / Some / Thin / None).</p>
-</section>
-
-<section>
-  <h2 id="placement"><span class="num">5</span>Alumni job success &amp; placement <span style="font-weight:400;color:var(--muted);font-size:1rem;">(priority)</span></h2>
-  <p class="lead">Public placement data at the true program level is rare — only Western Michigan reports it cleanly for its ed-leadership department; everywhere else the useful numbers sit at the college or accreditation level, or do not exist. A credible department-scale placement snapshot is therefore the clearest whitespace NAU could own. The reporting models we found, strongest to weakest:</p>
-  <p><strong>Department-level outcomes with a real method (the model to beat).</strong> Western Michigan's ELRT department publishes a 2024-25 Career Outcomes Report: <a href="https://wmich.edu/leadership" target="_blank" rel="noopener">94% of graduates working full time have a job related to their degree</a>, and its Higher Education Leadership PhD claims <a href="https://wmich.edu/leadership/academics/ed-leadership/doctor/higher-ed" target="_blank" rel="noopener">100% employed or continuing education within three months</a>. It is backed by a transparent <a href="https://wmich.edu/career/outcomes/aboutpgar" target="_blank" rel="noopener">NACE first-destination method</a> — a survey sent about three weeks before graduation, four reminders, then LinkedIn supplementation, reaching a 78% knowledge rate.</p>
-  <p><strong>NACE-grade career reporting at the college level.</strong> Vanderbilt Peabody reports <a href="https://peabody.vanderbilt.edu/student-life/career-services/" target="_blank" rel="noopener">95% of 2024-25 graduates placed by November 15</a> via a NACE-compliant annual report with a 98% knowledge rate and named employers, and its LPO department keeps a simple <a href="https://peabody.vanderbilt.edu/departments/lpo/recent-phd-placements.php" target="_blank" rel="noopener">Recent PhD Placements list</a> of name, title, and employer — though it has gone stale since 2022.</p>
-  <p><strong>Accreditation-driven outcomes (CAEP).</strong> East Carolina and Old Dominion surface their most defensible numbers through educator-prep accreditation: ECU's <a href="https://education.ecu.edu/oaa/caepar/" target="_blank" rel="noopener">CAEP Annual Report</a> includes an employment-outcomes measure, and ODU's <a href="https://www.odu.edu/education/about/accreditation/caep" target="_blank" rel="noopener">CAEP page</a> breaks out Educational Leadership with an employer-satisfaction mean of 4.22/5 and a 100% licensure-exam pass rate. Both are college/EPP-level, not EdD-specific.</p>
-  <p><strong>Named-leader outcomes (story as proof).</strong> Several programs substitute concrete named placements for rates: ECU names <a href="https://education.ecu.edu/doctor-of-education/" target="_blank" rel="noopener">Matthew Cheeseman, EdD '22, now a county superintendent</a>; U of A features <a href="https://education.arizona.edu/educational-leadership-policy" target="_blank" rel="noopener">Dr. Flori Centeno Huitt, EdD '23, Assistant Superintendent at Tucson Unified</a>; and Sam Houston's strongest alum, <a href="https://www.shsu.edu/dept/office-of-alumni-relations/awards/distinguished/2019/Goffney/LaTonya/" target="_blank" rel="noopener">Dr. LaTonya Goffney, 2018 Texas Superintendent of the Year</a>, appears only in a university alumni-relations page, not the department's.</p>
-  <p><strong>College-level stat tiles.</strong> ASU leans on a college-wide <a href="https://education.asu.edu/about/facts" target="_blank" rel="noopener">90% employed in their field within six months</a>; Michigan State stays qualitative, citing "high rates of promotion and long-term career success" backed by rankings rather than numbers.</p>
-  <p><strong>Completion transparency instead of placement.</strong> GCU publishes no placement data, with an explicit disclaimer, but posts an unusually candid <a href="https://www.gcu.edu/college-of-doctoral-studies/about-doctoral-programs" target="_blank" rel="noopener">doctoral outcomes table</a>: 1,226 EdD in Organizational Leadership graduates, a 6.5-year average completion, and cost — completion and time-to-degree, not jobs.</p>
-  <p>The pattern is clear: a department that publishes even a modest, methodologically honest placement snapshot stands out immediately, because almost no ed-leadership program does.</p>
-</section>
-
-<section>
-  <h2 id="storytelling"><span class="num">6</span>Storytelling patterns</h2>
-  <p class="lead">Every program tells stories, but the ones that land treat it as a repeatable system — a recurring feed, series, or template — rather than a handful of static pages, and the best tie each name to a real job title.</p>
-  <p><strong>Alumni</strong> storytelling clusters into five formats. The strongest is a content engine: East Carolina's <a href="https://education.ecu.edu/category/leed/" target="_blank" rel="noopener">LEED news blog</a> continuously rotates alumni, student, and faculty spotlights, such as <a href="https://education.ecu.edu/2023/09/01/carrie-morris/" target="_blank" rel="noopener">Carrie Morris, EdD</a>. Next is a cadenced series — UNLV runs a numbered, dated <a href="https://www.unlv.edu/ephe/announcements" target="_blank" rel="noopener">Alumni Spotlight</a>. Michigan State uses self-reported <a href="https://education.msu.edu/new-educator/2026/01/alumni-notes-jan-2026" target="_blank" rel="noopener">Alumni Notes</a> in its alumni magazine, organized by name and degree; GCU runs a high-volume, video-first <a href="https://www.gcu.edu/blog/doctoral-journey/doctoral-student-experiences" target="_blank" rel="noopener">testimonial engine</a>. Western Michigan and Vanderbilt use the simplest high-trust format — <a href="https://wmich.edu/leadership/hesa/testimonials" target="_blank" rel="noopener">named alumni with degree year and current role</a>, from a community-college president to a CEO.</p>
-  <p><strong>Current-student</strong> storytelling is thinner everywhere, but two models stand out. Old Dominion's <a href="https://www.odu.edu/educational-foundations-leadership/student-profiles" target="_blank" rel="noopener">student-profile pages</a> give about a dozen photo-plus-interview profiles, each naming the student's employer, role, faculty mentor, and research focus — which doubles as informal placement proof. Vanderbilt's <a href="https://news.vanderbilt.edu/2025/05/13/where-leaders-learn-inside-vanderbilts-online-leadership-and-learning-in-organizations-doctoral-program/" target="_blank" rel="noopener">LLO feature</a> names current doctoral students alongside their day jobs. Most others — ASU, U of A, Ball State, Sam Houston, Michigan State — have little or none.</p>
-  <p><strong>Faculty</strong> storytelling takes three recurring shapes. Ball State's <a href="https://www.bsu.edu/academics/collegesanddepartments/educational-leadership/about-us/faculty-and-staff-directory" target="_blank" rel="noopener">faculty directory</a> pairs headshots with CVs and individual bio pages; ASU publishes monthly <a href="https://education.asu.edu/about/news/august-2026-faculty-scholarship-and-recognitions" target="_blank" rel="noopener">faculty scholarship and recognition roundups</a>; UNLV runs a research-and-experts <a href="https://www.unlv.edu/news/unit/academic/15621" target="_blank" rel="noopener">news feed</a> (a $1M NSF grant, faculty in national media). GCU is the weak outlier, presenting faculty collectively with no named profiles.</p>
-  <p><strong>The recurring failure</strong> is good material stranded in the wrong place: Sam Houston's Texas Superintendent of the Year and Michigan State's rich alumni notes live in university or college channels, and U of A's dedicated spotlight page returns a 404 — so the story never reaches the program page where a prospective student actually looks.</p>
-</section>
-
-<section>
-  <h2 id="data-collection"><span class="num">7</span>Data-collection methods &amp; infrastructure</h2>
-  <p class="lead">How programs gather outcome data falls into four approaches, most to least rigorous: NACE first-destination surveys, accreditation reporting, self-reported alumni submissions, and aggregated institutional records. Most programs run nothing visible; the ones that stand out have a defined instrument.</p>
-  <p><strong>NACE first-destination surveys (the gold standard).</strong> Western Michigan's <a href="https://wmich.edu/career/outcomes/aboutpgar" target="_blank" rel="noopener">documented method</a> is the most copyable: survey graduates about three weeks before they finish, send four reminders, then fill gaps from public LinkedIn profiles, and report the knowledge rate (78%). Vanderbilt Peabody runs the same NACE-compliant approach at <a href="https://peabody.vanderbilt.edu/student-life/career-services/" target="_blank" rel="noopener">college scale</a> (98% knowledge rate), and East Carolina runs a university <a href="https://ipar.ecu.edu/assessment/asmnt-surveys/asmnt-first-destination-survey/" target="_blank" rel="noopener">First-Destination Survey</a> through its IR office.</p>
-  <p><strong>Accreditation reporting (data you may already generate).</strong> For the K-12 and principal side, CAEP educator-prep accreditation requires completer, employer-satisfaction, and employment-outcome data. East Carolina's <a href="https://education.ecu.edu/oaa/caepar/" target="_blank" rel="noopener">CAEP Annual Report</a>, Old Dominion's <a href="https://www.odu.edu/education/about/accreditation/caep" target="_blank" rel="noopener">CAEP measures</a>, and Ball State all publish it. This matters for NAU: the K-12 administration programs likely already produce accreditation data that is not surfaced publicly.</p>
-  <p><strong>Self-reported alumni submissions (low cost, lower rigor).</strong> Michigan State collects updates through an <a href="https://education.msu.edu/alum/" target="_blank" rel="noopener">Alumni Notes submission</a> and a Qualtrics awards form; ASU runs an <a href="https://education.asu.edu/about/community/alumni" target="_blank" rel="noopener">alumni story-submission survey</a> plus a CareerLink platform; GCU relies on self-recorded video testimonials. These build a story pipeline cheaply but do not produce defensible rates.</p>
-  <p><strong>Aggregated institutional records.</strong> GCU's <a href="https://www.gcu.edu/college-of-doctoral-studies/about-doctoral-programs" target="_blank" rel="noopener">completion and cost table</a> is built from its student-information system, while Ball State and Old Dominion rely on university-wide alumni surveys from their IR offices — though ODU's sit <a href="https://www.odu.edu/assessment/results/alumni-survey-reports" target="_blank" rel="noopener">behind a login</a>. These are broad but rarely broken out by department.</p>
-  <p><strong>A shared vocabulary: CPED.</strong> ASU, U of A, and East Carolina anchor their EdDs in the Carnegie Project on the Education Doctorate (dissertation-in-practice, problems of practice), giving a common language for defining program outcomes — ASU's EdD was named CPED "Program of the Year." NAU could use the same framing to make its outcomes legible to peers.</p>
-</section>
-
-<section>
-  <h2 id="takeaways"><span class="num">8</span>Takeaways &amp; recommended moves for NAU</h2>
-  <p class="lead">NAU already owns the single strongest public claim in this peer set — 65% of Arizona's sitting superintendents — but it is unmethodical and stranded on a College page. The opportunity is not better raw material; it is systematic collection, department-page presence, and a storytelling cadence. Moves are grouped by our three uses, hardest-hitting first.</p>
-  <p><strong>Build our own data collection.</strong></p>
-  <ol>
-    <li>Run a NACE-style first-destination survey (copy <a href="https://wmich.edu/career/outcomes/aboutpgar" target="_blank" rel="noopener">Western Michigan</a>): send it about three weeks before graduation, four reminders, then supplement from LinkedIn, and report a knowledge rate. Smallest first step — do it for one EdD cohort this year.</li>
-    <li>Surface the accreditation data we likely already collect. The K-12 side almost certainly produces CAEP-style completer, employer-satisfaction, and employment figures (as <a href="https://education.ecu.edu/oaa/caepar/" target="_blank" rel="noopener">ECU</a> and <a href="https://www.odu.edu/education/about/accreditation/caep" target="_blank" rel="noopener">ODU</a> publish) — pull those numbers and post them.</li>
-    <li>Keep a simple "Recent Graduate Placements" list — name, title, employer — refreshed each cohort (copy Vanderbilt's <a href="https://peabody.vanderbilt.edu/departments/lpo/recent-phd-placements.php" target="_blank" rel="noopener">PhD placements list</a>); trivial to start, high credibility.</li>
-  </ol>
-  <p><strong>Sharpen our storytelling.</strong></p>
-  <ol>
-    <li>Move the 65% superintendent stat — plus any new placement numbers — onto the department's own page as headline stat tiles (copy ASU and WMU), not just the College page.</li>
-    <li>Start a cadenced spotlight series: one alumni, student, or faculty profile a month, each naming a real role (copy <a href="https://www.unlv.edu/ephe/announcements" target="_blank" rel="noopener">UNLV's numbered series</a> or <a href="https://education.ecu.edu/category/leed/" target="_blank" rel="noopener">ECU's rotating blog</a>).</li>
-    <li>Add current-student profiles that name employer, role, and research focus (copy <a href="https://www.odu.edu/educational-foundations-leadership/student-profiles" target="_blank" rel="noopener">ODU</a>) — which doubles as informal placement proof.</li>
-    <li>Open a low-cost alumni "share your story" submission form (copy <a href="https://education.msu.edu/alum/" target="_blank" rel="noopener">MSU's Alumni Notes</a>) to keep the pipeline fed without heavy staff time.</li>
-  </ol>
-  <p><strong>Benchmark where we stand.</strong> NAU's headline claim beats nearly every peer's public data; the gap is method, department-page presence, and cadence — not evidence. Before investing, consider re-running this scan against the 12 reserve ABOR peers to confirm the whitespace is real.</p>
-  <p><strong>If we do one thing:</strong> run a first-destination survey for the next graduating cohort and post the result — next to the 65% stat and a short placements list — on the department's own page. That alone would move NAU past most of this peer set.</p>
+  <p class="mock-tag">Illustrative mockup for discussion — not a live NAU page. The 65% figure and Dr. Garvy's words are real (from NAU's College of Education page); [bracketed] items are placeholders for data we would collect.</p>
 </section>
 
 <section>
