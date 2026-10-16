@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pick Your Use Case: a one-page worksheet for a safe agentic AI experiment</title>
+<meta name="description" content="A one-page worksheet from the NAU Tech Summit 2026 talk Agentic AI at Work. Part 1 helps you choose a first use case; Part 2 helps you scope a safe experiment and bring it to your supervisor.">
+<style>
+  :root { --navy:#003366; --gold:#F8B700; --ink:#1a1a1a; --muted:#595959; --paper:#ffffff; --tint:#eef2f7; --gold-tint:#fff3c2; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Arial, Helvetica, sans-serif; color:var(--ink); background:var(--paper); line-height:1.5; font-size:1.05rem; }
+  main { max-width: 46rem; margin: 0 auto; padding: 1.5rem 1rem 3rem; }
+  h1 { color:var(--navy); font-size:1.9rem; line-height:1.2; margin:0 0 .25rem; }
+  h2 { color:var(--navy); font-size:1.35rem; margin:2rem 0 .5rem; }
+  .lede { color:var(--muted); margin:0 0 1rem; }
+  .track { padding:.6rem .9rem; border-radius:.6rem; margin:.5rem 0 1rem; }
+  .new { background:var(--tint); } .adv { background:var(--gold-tint); }
+  ol { padding-left:1.4rem; } li { margin:.6rem 0; }
+  .line { display:block; border:0; border-bottom:2px solid #b8c2cf; height:2.2rem; width:100%; margin-top:.3rem; }
+  textarea { width:100%; min-height:4.5rem; font:inherit; padding:.5rem; border:1.5px solid #b8c2cf; border-radius:.4rem; }
+  input[type="text"] { width:100%; font:inherit; padding:.5rem; border:1.5px solid #b8c2cf; border-radius:.4rem; margin-top:.3rem; }
+  input[type="text"]:focus, textarea:focus { outline:3px solid var(--gold); outline-offset:1px; }
+  label { font-weight:bold; color:var(--navy); }
+  .note { border-left:0; background:var(--tint); padding:.8rem 1rem; border-radius:.6rem; margin:1.5rem 0; }
+  a { color:#0b5aa6; } a:focus { outline:3px solid var(--gold); outline-offset:2px; }
+  footer { margin-top:2.5rem; color:var(--muted); font-size:.95rem; }
+  .muted { display:block; color:var(--muted); font-size:.95rem; margin-top:.3rem; }
+  .actions { display:flex; flex-wrap:wrap; gap:.6rem; margin:1.5rem 0 .5rem; }
+  button { font:inherit; font-weight:bold; padding:.65rem 1.1rem; border-radius:.5rem; border:2px solid var(--navy); background:var(--navy); color:#fff; cursor:pointer; }
+  button.secondary { background:#fff; color:var(--navy); }
+  button:hover { filter:brightness(1.12); }
+  button:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  #plan { display:none; margin-top:1rem; }
+  #plan.show { display:block; }
+  #plan h2 { margin-top:1rem; }
+  #plan-text { width:100%; min-height:16rem; font:inherit; font-size:1rem; line-height:1.45; padding:.8rem; border:2px solid var(--navy); border-radius:.5rem; background:var(--tint); white-space:pre-wrap; }
+  #status { min-height:1.4rem; color:var(--navy); font-weight:bold; margin:.3rem 0 0; }
+  @media print {
+    .track { border:1px solid #999; } textarea { min-height:5rem; }
+    .actions, #status { display:none; }
+    body.printing-plan form, body.printing-plan .track, body.printing-plan .lede { display:none; }
+    body.printing-plan #plan { display:block; }
+    #plan-text { background:#fff; border:1px solid #999; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>Pick Your Use Case</h1>
+  <p class="lede">One page, two parts. From the NAU Tech Summit 2026 talk <em>Agentic AI at Work: Multi-Agent Workflows for Faculty and Staff</em> (Blue Brazelton, October 20, 2026). Print it, or fill it in on screen; nothing you type here is saved or sent anywhere.</p>
+
+  <p class="track new"><strong>New to this?</strong> Do Part 1. Pick the task, then stop. That is enough for Monday.</p>
+  <p class="track adv"><strong>Already using agents?</strong> Skip to Part 2 and scope the experiment, starting with the data question.</p>
+
+  <form id="worksheet" autocomplete="off" onsubmit="return false;">
+  <h2>Part 1: Choose it</h2>
+  <p>The best first use case is work you understand better than anyone and never have time for.</p>
+  <ol>
+    <li><label for="q1">What do I understand better than anyone else in my unit?</label>
+      <textarea id="q1" aria-describedby="hint1"></textarea>
+      <span id="hint1" class="muted">Think forms, deadlines, exceptions, who actually owns what.</span></li>
+    <li><label for="q2">What eats my time every week that fits that knowledge?</label>
+      <textarea id="q2"></textarea></li>
+    <li><label for="q3">My one use case (the task with five steps and three tools):</label>
+      <textarea id="q3"></textarea></li>
+    <li><label for="q3b">The one person I'll tell about it:</label>
+      <input type="text" id="q3b" aria-describedby="hint3b">
+      <span id="hint3b" class="muted">Your supervisor, usually. A colleague who shares the task also counts.</span></li>
+  </ol>
+
+  <h2>Part 2: Scope it</h2>
+  <p>An experiment is safe when the data is allowed, the check step is named, and the supervisor is in the loop.</p>
+  <ol start="4">
+    <li><label for="q4">What data does this task touch, and is any of it data that can't leave the building?</label>
+      <textarea id="q4"></textarea>
+      <span class="muted">Check the class under NAU's <a href="https://in.nau.edu/university-policy-library/data-classification-and-handling/">Data Classification and Handling Policy</a>. When in doubt, start with public data and ask ITS which tools are approved.</span></li>
+    <li><label for="q5">Where is my check step? (The one step where a wrong answer costs something, and how I will catch it.)</label>
+      <textarea id="q5"></textarea></li>
+    <li><label for="q6">How will I tell my supervisor? (The play, where I check, what data it touches, what I'll report back and when.)</label>
+      <textarea id="q6"></textarea>
+      <span class="muted">New to this: ask for a one-month experiment. Already using agents: propose the measure that says it worked.</span></li>
+  </ol>
+
+  <div class="actions">
+    <button type="button" id="build">Build my game plan</button>
+    <button type="button" id="chatline" class="secondary">Copy my chat line</button>
+  </div>
+  <p id="status" role="status" aria-live="polite"></p>
+  </form>
+
+  <section id="plan" aria-labelledby="plan-h">
+    <h2 id="plan-h">Your coach's game plan</h2>
+    <p class="muted">The four boxes from the talk, filled from your answers. Edit the text here if you like, then copy, download, or print it. Still nothing leaves this page.</p>
+    <label for="plan-text" class="muted">Game plan text</label>
+    <textarea id="plan-text" aria-describedby="plan-h"></textarea>
+    <div class="actions">
+      <button type="button" id="copy" class="secondary">Copy to clipboard</button>
+      <button type="button" id="download" class="secondary">Download as text</button>
+      <button type="button" id="print" class="secondary">Print the plan</button>
+    </div>
+  </section>
+
+  <div class="note">
+    <strong>Monday's move:</strong> pick it, run it on data that's allowed to leave the building, check its work, and take it to your supervisor as a coach's game plan.
+  </div>
+
+  <h2>The eight moves</h2>
+  <p><strong>Work loop</strong> (you and the agent): instruct, run, verify, iterate.<br>
+     <strong>Leadership loop</strong> (you and your supervisor): supervise, document, disclose, hand off.</p>
+
+  <footer>
+    <p>Blue Brazelton, <a href="https://www.bluebrazelton.com/">bluebrazelton.com</a>. The inclusion of any tool in the talk or on this page is not an endorsement or approval by Northern Arizona University; approval for use with NAU data varies by department and context.</p>
+  </footer>
+</main>
+<script>
+(function () {
+  var BLANK = "(not answered yet)";
+  var NEXT = "(scope this next: you did Part 1, which is enough for Monday)";
+  function val(id) { var v = document.getElementById(id).value.trim(); return v; }
+  function say(msg) { document.getElementById("status").textContent = msg; }
+  function part2Done() { return val("q4") || val("q5") || val("q6"); }
+  function buildPlan() {
+    var p2 = part2Done();
+    var fill = function (id) { var v = val(id); return v ? v : (p2 ? BLANK : NEXT); };
+    var lines = [
+      "MY COACH'S GAME PLAN",
+      "Built from the Pick Your Use Case worksheet (Agentic AI at Work, NAU Tech Summit 2026).",
+      "",
+      "THE PLAY (what the agent will do, for one task)",
+      val("q3") || (val("q2") ? val("q2") : BLANK),
+      "",
+      "WHAT I KNOW THAT THE AGENT DOESN'T",
+      val("q1") || BLANK,
+      "",
+      "WHERE I CHECK (the step where a wrong answer costs something, and how I catch it)",
+      fill("q5"),
+      "",
+      "WHAT DATA IT TOUCHES (and whether ITS has approved the tool for that class)",
+      fill("q4"),
+      "",
+      "WHAT I'LL REPORT BACK, AND WHEN",
+      fill("q6"),
+      "",
+      "WHO I'LL TELL FIRST",
+      val("q3b") || BLANK,
+      "",
+      "THE ASK",
+      p2 ? "A defined experiment, with the measure above as the test of whether it worked." : "A one-month experiment on this one task, on data that is allowed to leave the building.",
+      "",
+      "Work loop: instruct, run, verify, iterate.  Leadership loop: supervise, document, disclose, hand off."
+    ];
+    return lines.join("\n");
+  }
+  function copyText(text, okMsg) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { say(okMsg); }, function () { fallbackCopy(text, okMsg); });
+    } else { fallbackCopy(text, okMsg); }
+  }
+  function fallbackCopy(text, okMsg) {
+    var ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.left = "-9999px"; document.body.appendChild(ta); ta.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta); say(ok ? okMsg : "Copy didn't work in this browser. Select the text and copy it by hand.");
+  }
+  document.getElementById("build").addEventListener("click", function () {
+    var plan = document.getElementById("plan"), box = document.getElementById("plan-text");
+    box.value = buildPlan(); plan.classList.add("show");
+    say("Game plan built below."); box.focus();
+    box.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  document.getElementById("chatline").addEventListener("click", function () {
+    var uc = val("q3") || val("q2") || BLANK;
+    var who = val("q3b") || (val("q6") ? "my supervisor" : "(the one person I'll tell)");
+    copyText("My one use case: " + uc + " | The one person I'll tell: " + who, "Chat line copied. Paste it in chat when Blue says go.");
+  });
+  document.getElementById("copy").addEventListener("click", function () {
+    copyText(document.getElementById("plan-text").value, "Game plan copied to the clipboard.");
+  });
+  document.getElementById("download").addEventListener("click", function () {
+    var blob = new Blob([document.getElementById("plan-text").value], { type: "text/plain;charset=utf-8" });
+    var a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "my-game-plan.txt";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000); say("Downloaded my-game-plan.txt.");
+  });
+  document.getElementById("print").addEventListener("click", function () {
+    document.body.classList.add("printing-plan");
+    var done = function () { document.body.classList.remove("printing-plan"); window.removeEventListener("afterprint", done); };
+    window.addEventListener("afterprint", done); window.print();
+  });
+})();
+</script>
+</body>
+</html>
